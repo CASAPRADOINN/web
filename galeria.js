@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
         galeriaFotos.innerHTML = '';
         habitacion.fotos.forEach(foto => {
             const img = document.createElement('img');
-            img.src = `${habitacion.carpeta}/${foto}`;
+            img.src = encodeURIComponent(habitacion.carpeta) + '/' + encodeURIComponent(foto);
             img.alt = `Foto de ${habitacion.nombre}`;
             img.style.width = '100%';
             galeriaFotos.appendChild(img);
