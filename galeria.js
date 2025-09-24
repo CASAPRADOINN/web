@@ -6,14 +6,14 @@ document.addEventListener('DOMContentLoaded', () => {
         galeriaFotos.innerHTML = '';
         habitacion.fotos.forEach(foto => {
             const img = document.createElement('img');
-            img.src = encodeURIComponent(habitacion.carpeta) + '/' + encodeURIComponent(foto);
+            img.src = '/web/' + encodeURIComponent(habitacion.carpeta) + '/' + encodeURIComponent(foto);
             img.alt = `Foto de ${habitacion.nombre}`;
             img.style.width = '100%';
             galeriaFotos.appendChild(img);
         });
     };
 
-    fetch('habitaciones.json')
+   traer('/web/habitaciones.json')
         .then(response => response.json())
         .then(data => {
             data.habitaciones.forEach(habitacion => {
