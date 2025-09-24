@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
- fetch('/web/habitaciones.json')
+    fetch('habitaciones.json')
         .then(response => response.json())
         .then(data => {
             data.habitaciones.forEach(habitacion => {
