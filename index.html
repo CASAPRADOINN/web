@@ -1,472 +1,489 @@
->
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reserva de Habitaciones</title>
+    <title>CASA PRADO INN - Alquileres Largos en Medellín</title>
+    <!-- Carga de Tailwind CSS desde CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6;
+            background-color: #f7fafc;
+            color: #2d3748;
         }
-        .calendar-grid {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 1px;
-            background-color: #d1d5db;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        .day {
-            text-align: center;
-            padding: 8px 4px;
-            background-color: #ffffff;
-            font-size: 0.875rem;
-            cursor: pointer;
-            transition: background-color 0.2s ease, transform 0.2s ease;
-        }
-        .day:hover:not(.disabled):not(.selected) {
-            background-color: #e5e7eb;
-        }
-        .day.selected {
-            background-color: #10b981;
-            color: #ffffff;
-            font-weight: 600;
-        }
-        .day.disabled {
-            color: #9ca3af;
-            cursor: not-allowed;
-        }
-        .day-header {
-            text-align: center;
-            padding: 12px 4px;
-            font-weight: 600;
-            background-color: #f9fafb;
-            color: #4b5563;
-        }
-        .gallery-container {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-            overflow: hidden;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        .gallery {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-        .gallery-item {
-            min-width: 100%;
-            height: 450px;
-        }
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .gallery-nav button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 16px;
-            cursor: pointer;
-            z-index: 10;
-            opacity: 0.7;
-            transition: opacity 0.2s;
-            border-radius: 50%;
-        }
-        .gallery-nav button:hover {
-            opacity: 1;
-        }
-        .gallery-nav .prev {
-            left: 10px;
-        }
-        .gallery-nav .next {
-            right: 10px;
-        }
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 50;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-        }
-        .modal-content {
-            background-color: #fff;
-            padding: 24px;
-            border-radius: 12px;
-            max-width: 500px;
-            text-align: center;
-        }
-        .close-modal {
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            color: #aaa;
-            cursor: pointer;
-        }
-        .close-modal:hover, .close-modal:focus {
-            color: #000;
-            text-decoration: none;
-            cursor: pointer;
+        .smooth-scroll {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
-<body class="bg-gray-100 p-8">
+<body class="smooth-scroll">
+    <div id="app" class="min-h-screen flex flex-col items-center p-4 sm:p-8">
 
-<div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg">
-    <h1 class="text-4xl font-bold text-center text-gray-800 mb-6">Reserva tu Casa</h1>
-    <p class="text-center text-gray-600 mb-10">Selecciona las fechas de tu estancia y completa el formulario.</p>
-
-    <p class="text-center"><a href="galeria.html" class="text-blue-500 hover:underline">Ver Galería de Fotos</a></p>
-
-    <div class="mb-12">
-        <h2 class="text-3xl font-semibold text-center text-gray-700 mb-6">Fotografías de las Habitaciones</h2>
-        <div class="gallery-container">
-            <div id="gallery" class="gallery">
+        <!-- Barra de Navegación -->
+        <nav class="sticky top-0 z-50 w-full max-w-5xl bg-amber-50 bg-opacity-90 backdrop-blur-sm rounded-xl shadow-lg p-4 mb-8">
+            <div class="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+                <!-- Logo/Inicio -->
+                <a href="#top" class="hover:opacity-80 transition-opacity">
+                    <img src="https://i.ibb.co/wFRq2pmC/logo.jpg" alt="Logo de The Co-Working & Rooftop House" class="h-12 rounded-full shadow-md">
+                </a>
+                <!-- Menú de Navegación -->
+                <div class="flex flex-wrap justify-center space-x-4 sm:space-x-6 text-blue-900">
+                    <a href="#caracteristicas" class="hover:text-blue-600 transition-colors font-medium">Características</a>
+                    <a href="#galeria" class="hover:text-blue-600 transition-colors font-medium">Galería de fotos</a>
+                    <a href="#acomodacion-precio" class="hover:text-blue-600 transition-colors font-medium">Acomodación y Precio</a>
+                    <a href="#pagos" class="hover:text-blue-600 transition-colors font-medium">Métodos de Pago</a>
+                    <a href="#ubicacion" class="hover:text-blue-600 transition-colors font-medium">Ubicación</a>
                 </div>
-            <div class="gallery-nav">
-                <button class="prev" id="prevBtn">&#10094;</button>
-                <button class="next" id="nextBtn">&#10095;</button>
+            </div>
+        </nav>
+
+        <!-- Hero Section and Main Info -->
+        <header id="top" class="w-full max-w-5xl bg-white rounded-xl shadow-lg p-6 sm:p-8 mb-8">
+            <!-- Contenedor de la imagen de portada -->
+            <div class="w-full h-64 sm:h-96 rounded-xl overflow-hidden shadow-md mb-4">
+                <img src="https://i.ibb.co/Zz31sN9r/fachada-2.jpg" alt="Fotografía de la fachada de la casa estilo pueblo paisa en Medellín" class="w-full h-full object-cover">
+            </div>
+            <!-- Título debajo de la imagen -->
+            <h1 class="text-3xl sm:text-4xl font-bold text-blue-950 text-center mb-6">CASA PRADO INN</h1>
+            <!-- Descripción debajo del título, sin los asteriscos -->
+            <p class="text-lg text-center text-gray-600 max-w-3xl mx-auto italic text-gray-700">
+                En el corazón del único Distrito Cultural y Patrimonial de Medellín, te invitamos a vivir una experiencia inigualable. Esta casa respira la magia de un pueblo paisa y la fusiona con la comodidad moderna. Desde la inspiradora terraza hasta los acogedores espacios, cada rincón es una invitación a conectar con la historia y el encanto de la ciudad. Bienvenido a tu hogar, donde los sueños y la cultura se encuentran.
+            </p>
+        </header>
+
+        <!-- Main Content Section -->
+        <main class="w-full max-w-5xl grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Features and Details Column -->
+            <div class="md:col-span-2 bg-white rounded-xl shadow-lg p-6 sm:p-8">
+                <!-- Seccion de Caracteristicas -->
+                <h2 id="caracteristicas" class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4 border-b pb-2">
+                    Características Principales
+                </h2>
+                <ul class="space-y-4 text-gray-600 mb-6">
+                    <li>
+                        <span class="font-medium text-gray-800">🔹 Diseño colonial encantador:</span> Un ambiente único que fusiona historia y comodidad.
+                    </li>
+                    <li>
+                        <span class="font-medium text-gray-800">🔹 Sostenibilidad:</span> Sistema de recolección de aguas lluvias para sanitarios.
+                    </li>
+                    <li>
+                        <span class="font-medium text-gray-800">🔹 Ubicación estratégica y excelente distribución:</span> Tres pisos y terraza en el corazón del Prado Centro.
+                    </li>
+                    <li>
+                        <span class="font-medium text-gray-800">🛏 20 habitaciones</span> amobladas. Para más detalles, consulta la sección de Acomodación.
+                    </li>
+                    <li>
+                        <span class="font-medium text-gray-800">🚿 20 baños</span>, incluyendo uno para personas con movilidad reducida.
+                    </li>
+                    <li>
+                        <span class="font-medium text-gray-800">🛎 Área de recepción, 🛋 sala amplia, 🍽 cocina abierta</span> en acero inoxidable.
+                    </li>
+                    <li>
+                        <span class="font-medium text-gray-800">🍕 Horno pizzero y zona BBQ</span> para momentos de ocio.
+                    </li>
+                    <li>
+                        <span class="font-medium text-gray-800">🌇 Terraza abierta</span> con diseño colonial y vistas a la ciudad.
+                    </li>
+                    <li>
+                        <span class="font-medium text-gray-800">🧺 Zona de lavandería</span> y 🎥 16 cámaras de seguridad – circuito cerrado.
+                    </li>
+                    <li>
+                        <span class="font-medium text-gray-800">⛽ Calentador a gas natural</span> para todas las duchas (60 galones).
+                    </li>
+                </ul>
+                
+                <!-- Sección de Acomodación añadida -->
+                <h2 id="acomodacion" class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4 border-b pb-2 mt-8">
+                    Acomodación
+                </h2>
+                <p class="text-gray-600 mb-4">
+                    La casa cuenta con 20 habitaciones amobladas, distribuidas para adaptarse a diferentes necesidades:
+                </p>
+                <ul class="list-disc list-inside space-y-2 text-gray-600 mb-6">
+                    <li>Habitaciones para <span class="font-bold">1 persona</span>.</li>
+                    <li>Habitaciones para <span class="font-bold">2 personas</span>.</li>
+                    <li>Habitaciones para <span class="font-bold">3 personas</span>.</li>
+                    <li>Habitaciones para <span class="font-bold">4 personas</span>.</li>
+                </ul>
+                
+                <!-- Sección de Métodos de Pago - Diseño actualizado -->
+                <h2 id="pagos" class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4 border-b pb-2 mt-8">
+                    Métodos de Pago
+                </h2>
+                <p class="text-gray-600 mb-4">
+                    Para tu conveniencia, ofrecemos varias opciones de pago para confirmar tu reserva. Elige la que mejor se adapte a ti.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                    <!-- Tarjeta de Transferencia Bancaria -->
+                    <div id="transferencia-bancaria" class="bg-gray-100 rounded-lg p-4 flex items-center space-x-4 shadow-md cursor-pointer hover:bg-gray-200 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-blue-600">
+                            <rect width="20" height="14" x="2" y="5" rx="2"/><path d="M2 10h20"/><path d="M7 15h0.01"/><path d="M11 15h2"/><path d="M16 15h2"/>
+                        </svg>
+                        <span class="font-medium text-gray-800">Transferencia Bancaria</span>
+                    </div>
+                    <!-- Tarjeta de Plataformas de Pago -->
+                    <div id="plataformas-pago" class="bg-gray-100 rounded-lg p-4 flex items-center space-x-4 shadow-md cursor-pointer hover:bg-gray-200 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-green-600">
+                            <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><path d="M18 12a2 2 0 0 0 0 4h4a2 2 0 0 1 0 4h-4a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2h4a2 2 0 0 0 0-4h-3a2 2 0 0 0-2 2v2z"/>
+                        </svg>
+                        <span class="font-medium text-gray-800">Plataformas de Pago</span>
+                    </div>
+                    <!-- Tarjeta de Pago en Efectivo -->
+                    <div id="pago-efectivo" class="bg-gray-100 rounded-lg p-4 flex items-center space-x-4 shadow-md cursor-pointer hover:bg-gray-200 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-yellow-600">
+                            <path d="M12 2v20m5-15H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/><path d="M12 3v18"/>
+                        </svg>
+                        <span class="font-medium text-gray-800">Pago en Efectivo</span>
+                    </div>
+                </div>
+
+                <!-- Seccion de Ubicacion y Conectividad -->
+                <h2 id="ubicacion" class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4 border-b pb-2 mt-8">
+                    Ubicación y Conectividad
+                </h2>
+                <p class="text-gray-600 mb-4">
+                    Estamos situados en el corazón de Prado Centro, con cercanías destacadas:
+                </p>
+                <ul class="list-disc list-inside space-y-2 text-gray-600 mb-6">
+                    <li>Teatro El Águila Descalza</li>
+                    <li>El Palacio Egipcio</li>
+                    <li>Clínica CES y Clínica El Rosario</li>
+                    <li>Centros Comerciales Camino Real y Villanueva</li>
+                    <li>Catedral Metropolitana</li>
+                </ul>
+                <div class="relative w-full h-64 rounded-xl overflow-hidden shadow-md">
+                    <!-- Código de iframe corregido para el mapa de Google -->
+                    <iframe 
+                        title="Ubicación de The Co-Working & Rooftop House"
+                        src="https://maps.google.com/maps?q=calle 61 45 d 15 barrio Prado Centro Medellin&output=embed&z=15"
+                        class="w-full h-full border-0" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                <p class="text-gray-600 mt-4 font-medium">
+                    Conectividad total con <span class="font-bold">Metro, Tranvía, Metroplús</span> y toda la red de transporte público.
+                </p>
+            </div>
+
+            <!-- Booking Form Column -->
+            <aside class="md:col-span-1 space-y-8">
+                <!-- Booking Engine Form -->
+                <div id="acomodacion-precio" class="bg-white rounded-xl shadow-lg p-6 sm:p-8 sticky top-4">
+                    <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4">
+                        Motor de Reservas
+                    </h2>
+                    <p class="text-sm text-gray-500 mb-2 italic">
+                        Selecciona el número de personas. La casa cuenta con habitaciones para 1, 2, 3 o 4 huéspedes.
+                    </p>
+                    <p class="text-sm text-gray-500 mb-4 italic">
+                        El precio se calcula por noche para estancias menores a 30 días y por mes para estancias de 30 días o más.
+                    </p>
+                    <!-- Formulario actualizado para enviar datos a Web3Forms -->
+                    <form id="booking-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
+                        <!-- Campo oculto requerido por Web3Forms. DEBES pegar aquí tu clave de acceso. -->
+                        <input type="hidden" name="access_key" value="2a04fd5d-fc10-473d-8b45-30148c696f9d">
+                        
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700">Nombre Completo</label>
+                            <input type="text" id="name" name="Nombre Completo" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700">Correo Electrónico</label>
+                            <input type="email" id="email" name="Correo Electrónico" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700">Teléfono de Contacto</label>
+                            <input type="tel" id="phone" name="Teléfono de Contacto" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                        <div>
+                            <label for="check-in" class="block text-sm font-medium text-gray-700">Fecha de Llegada</label>
+                            <input type="date" id="check-in" name="Fecha de Llegada" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                        <div>
+                            <label for="check-out" class="block text-sm font-medium text-gray-700">Fecha de Salida</label>
+                            <input type="date" id="check-out" name="Fecha de Salida" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                        <div>
+                            <label for="guests" class="block text-sm font-medium text-gray-700">Número de Huéspedes</label>
+                            <input type="number" id="guests" name="Número de Huéspedes" min="1" max="20" value="1" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        </div>
+                        <div class="mt-4">
+                            <p class="text-xl font-bold text-gray-800">
+                                Total estimado: <span id="total-price" class="text-blue-600">$0 COP</span>
+                            </p>
+                            <!-- Campo oculto para enviar el precio calculado -->
+                            <input type="hidden" id="total-price-hidden" name="Total estimado" value="$0 COP">
+                        </div>
+                        <button type="submit" name="submit-form" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-lg font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors">
+                            Reservar Ahora
+                        </button>
+                    </form>
+                    
+                    <!-- Botón de contacto por WhatsApp añadido -->
+                    <div class="mt-4">
+                        <a href="https://wa.me/573112129116" target="_blank" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-lg font-medium text-white bg-green-500 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400 transition-colors">
+                            Contactar por WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </aside>
+        </main>
+        
+        <!-- Gallery Section - Added back to the main page -->
+        <section id="galeria" class="w-full max-w-5xl bg-white rounded-xl shadow-lg p-6 sm:p-8 mt-8">
+            <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-6 text-center">
+                Galería de Fotos
+            </h2>
+            <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <!-- Las imágenes de la galería se insertarán aquí con JS -->
+            </div>
+        </section>
+
+        <!-- Message/Modal container -->
+        <div id="message-container" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden items-center justify-center p-4">
+            <div class="bg-white rounded-xl shadow-2xl p-6 sm:p-8 max-w-lg w-full text-center">
+                <h3 id="message-title" class="text-2xl font-bold text-gray-800 mb-4"></h3>
+                <p id="message-text" class="text-gray-600 mb-6"></p>
+                <button id="close-message" class="py-2 px-6 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">Cerrar</button>
             </div>
         </div>
     </div>
-    
-    <div class="mb-10 p-6 bg-gray-50 rounded-lg shadow-inner">
-        <div class="flex justify-between items-center mb-4">
-            <button id="prevMonth" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full transition-colors">&#9664;</button>
-            <h2 id="currentMonthYear" class="text-2xl font-bold text-gray-800"></h2>
-            <button id="nextMonth" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full transition-colors">&#9654;</button>
-        </div>
-        <div class="calendar-grid">
-            <div class="day-header">Lun</div>
-            <div class="day-header">Mar</div>
-            <div class="day-header">Mié</div>
-            <div class="day-header">Jue</div>
-            <div class="day-header">Vie</div>
-            <div class="day-header">Sáb</div>
-            <div class="day-header">Dom</div>
-            <div id="calendar-days"></div>
-        </div>
-    </div>
 
-    <div id="booking-form" class="hidden p-6 bg-green-50 rounded-lg shadow-inner">
-        <h3 class="text-xl font-semibold mb-4 text-green-700">Realizar Reserva</h3>
-        <p class="text-green-600 mb-4">Fechas seleccionadas: <span id="selected-dates" class="font-medium"></span></p>
-        <div class="grid md:grid-cols-2 gap-6">
-            <input type="text" id="name" placeholder="Tu Nombre" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
-            <input type="email" id="email" placeholder="Tu Correo Electrónico" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
-            <textarea id="message" placeholder="Mensaje (opcional)" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 md:col-span-2"></textarea>
-        </div>
-        <button id="submit-booking" class="w-full mt-6 px-6 py-3 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700 transition-colors">Confirmar Reserva</button>
-    </div>
-</div>
-
-<div id="message-modal" class="modal">
-    <div class="modal-content">
-        <span class="close-modal">&times;</span>
-        <h3 id="modal-title" class="text-2xl font-semibold mb-4 text-gray-800"></h3>
-        <p id="modal-message" class="text-gray-600"></p>
-    </div>
-</div>
-
-<script type="module">
-    // Firebase Imports
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-    import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-    import { getFirestore, doc, getDoc, setDoc, collection, query, where, getDocs, runTransaction } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-
-    // Global variables from Canvas environment
-    const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-    // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyDcXxTVIEuoGmW0Y08B80L0x9OITgwbU2U",
-  authDomain: "casa-prado-inn.firebaseapp.com",
-  projectId: "casa-prado-inn",
-  storageBucket: "casa-prado-inn.firebasestorage.app",
-  messagingSenderId: "658690080213",
-  appId: "1:658690080213:web:4d741c73ee5ef6ccf4115c",
-  measurementId: "G-WHQ45EWYLH"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-    const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
-
-    // Firebase Initialization
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-    const auth = getAuth(app);
-
-    // Initial user authentication
-    async function initAuth() {
-        if (initialAuthToken) {
-            try {
-                await signInWithCustomToken(auth, initialAuthToken);
-                console.log('Signed in with custom token.');
-            } catch (error) {
-                console.error('Custom token sign-in failed', error);
-                await signInAnonymously(auth);
-            }
-        } else {
-            await signInAnonymously(auth);
-            console.log('Signed in anonymously.');
-        }
-    }
-
-    let selectedDates = [];
-    const calendarDaysEl = document.getElementById('calendar-days');
-    const currentMonthYearEl = document.getElementById('currentMonthYear');
-    const prevMonthBtn = document.getElementById('prevMonth');
-    const nextMonthBtn = document.getElementById('nextMonth');
-    const bookingFormEl = document.getElementById('booking-form');
-    const selectedDatesEl = document.getElementById('selected-dates');
-    const submitBookingBtn = document.getElementById('submit-booking');
-    const modalEl = document.getElementById('message-modal');
-    const closeModalBtn = document.querySelector('.close-modal');
-    const modalTitleEl = document.getElementById('modal-title');
-    const modalMessageEl = document.getElementById('modal-message');
-
-    // Gallery elements
-    const galleryEl = document.getElementById('gallery');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    let currentIndex = 0;
-
-    // URLs de las imágenes que subiste
-    const imageUrls = [
-        "https://placehold.co/800x450/A3E635/000000?text=Habitacion+1",
-        "https://placehold.co/800x450/4ade80/000000?text=Habitacion+2",
-        "https://placehold.co/800x450/22d3ee/000000?text=Habitacion+3",
-        "https://placehold.co/800x450/60a5fa/000000?text=Habitacion+4",
-        "https://placehold.co/800x450/c4b5fd/000000?text=Habitacion+5"
-    ];
-
-    // Placeholder images for the rooms, replace these with the actual image URLs from GitHub
-    // If you upload the images to your GitHub repository, the URL would be something like
-    // `https://raw.githubusercontent.com/username/repo_name/branch/ruta/imagen.jpg`
-    // Example: https://raw.githubusercontent.com/miusuario/miproyecto/main/habitaciones/habitacion1.jpg
-    // To get the raw URL, go to your image in GitHub, click Raw and copy the URL.
-
-    // I will use placeholders for now. Replace these with your actual image URLs later.
-    const roomImages = [
-        "https://placehold.co/800x450/4ade80/000000?text=Habitacion+1",
-        "https://placehold.co/800x450/22d3ee/000000?text=Habitacion+2",
-        "https://placehold.co/800x450/60a5fa/000000?text=Habitacion+3",
-        "https://placehold.co/800x450/fca5a5/000000?text=Cocina",
-        "https://placehold.co/800x450/fdba74/000000?text=Exterior"
-    ];
-
-    function createGallery() {
-        galleryEl.innerHTML = '';
-        roomImages.forEach(src => {
-            const item = document.createElement('div');
-            item.className = 'gallery-item';
-            const img = document.createElement('img');
-            img.src = src;
-            img.alt = 'Foto de la habitación';
-            item.appendChild(img);
-            galleryEl.appendChild(item);
-        });
-    }
-    
-    function updateGallery() {
-        const width = galleryEl.querySelector('.gallery-item').clientWidth;
-        galleryEl.style.transform = `translateX(${-width * currentIndex}px)`;
-    }
-
-    prevBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex > 0) ? currentIndex - 1 : roomImages.length - 1;
-        updateGallery();
-    });
-
-    nextBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex < roomImages.length - 1) ? currentIndex + 1 : 0;
-        updateGallery();
-    });
-
-    // Handle window resize to keep the gallery responsive
-    window.addEventListener('resize', updateGallery);
-
-    // Initial calendar setup
-    let currentDate = new Date();
-
-    const showMessage = (title, message) => {
-        modalTitleEl.textContent = title;
-        modalMessageEl.textContent = message;
-        modalEl.style.display = 'flex';
-    };
-
-    closeModalBtn.onclick = () => {
-        modalEl.style.display = 'none';
-    };
-
-    window.onclick = (event) => {
-        if (event.target == modalEl) {
-            modalEl.style.display = 'none';
-        }
-    };
-
-    // Firebase data handling
-    const getBookings = async (year, month) => {
-        const userId = auth.currentUser.uid || crypto.randomUUID();
-        const collectionPath = `artifacts/${appId}/users/${userId}/bookings`;
-        const bookingsCol = collection(db, collectionPath);
-        const startOfMonth = new Date(year, month, 1);
-        const endOfMonth = new Date(year, month + 1, 0);
-
-        try {
-            const q = query(bookingsCol, where('checkIn', '=', startOfMonth.toISOString().split('T')[0]), where('checkIn', '=', endOfMonth.toISOString().split('T')[0]));
-            const bookingSnapshot = await getDocs(q);
-            return bookingSnapshot.docs.map(doc => doc.data());
-        } catch (e) {
-            console.error('Error fetching bookings', e);
-            return [];
-        }
-    };
-
-    const renderCalendar = async () => {
-        calendarDaysEl.innerHTML = '';
-        selectedDates = [];
-        bookingFormEl.classList.add('hidden');
-        
-        const year = currentDate.getFullYear();
-        const month = currentDate.getMonth();
-        currentMonthYearEl.textContent = currentDate.toLocaleString('es-ES', { month: 'long', year: 'numeric' });
-
-        const firstDayOfMonth = new Date(year, month, 1).getDay();
-        const daysInMonth = new Date(year, month + 1, 0).getDate();
-        
-        const bookedDates = (await getBookings(year, month)).map(b => b.checkIn);
-
-        // Add empty days for the offset
-        for (let i = 0; i < (firstDayOfMonth === 0 ? 6 : firstDayOfMonth - 1); i++) {
-            const emptyDay = document.createElement('div');
-            emptyDay.className = 'day disabled';
-            calendarDaysEl.appendChild(emptyDay);
-        }
-
-        // Add days of the month
-        for (let i = 1; i <= daysInMonth; i++) {
-            const dayEl = document.createElement('div');
-            dayEl.className = 'day';
-            dayEl.textContent = i;
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const checkInInput = document.getElementById('check-in');
+            const checkOutInput = document.getElementById('check-out');
+            const guestsInput = document.getElementById('guests');
+            const totalPriceSpan = document.getElementById('total-price');
+            const bookingForm = document.getElementById('booking-form');
+            const totalPriceHiddenInput = document.getElementById('total-price-hidden');
+            const galleryGrid = document.getElementById('gallery-grid');
+            const messageContainer = document.getElementById('message-container');
+            const messageTitle = document.getElementById('message-title');
+            const messageText = document.getElementById('message-text');
+            const closeMessageButton = document.getElementById('close-message');
+            const submitButton = document.querySelector('button[type="submit"]');
             
-            const fullDate = new Date(year, month, i);
-            const isoDate = fullDate.toISOString().split('T')[0];
+            // Referencias a las tarjetas de pago
+            const transferenciaBancariaCard = document.getElementById('transferencia-bancaria');
+            const plataformasPagoCard = document.getElementById('plataformas-pago');
+            const pagoEfectivoCard = document.getElementById('pago-efectivo');
 
-            if (fullDate < new Date() || bookedDates.includes(isoDate)) {
-                dayEl.classList.add('disabled');
-            } else {
-                dayEl.addEventListener('click', () => handleDayClick(isoDate, dayEl));
-            }
+            // Set min date for check-in to today
+            const today = new Date().toISOString().split('T')[0];
+            checkInInput.min = today;
+
+            // Galería de fotos: Pega aquí los enlaces directos a tus imágenes.
+            const images = [
+                'https://i.ibb.co/WpYTJYH8/DSC0305.jpg', 
+                'https://i.ibb.co/whzZ7vKZ/DSC0433.jpg', 
+                'https://i.ibb.co/gbGFXKpq/DSC0367.jpg', 
+                'https://i.ibb.co/DDCRZvfM/DSC0452.jpg', 
+                'https://i.ibb.co/cK3zMj69/DSC0358.jpg', 
+                'https://i.ibb.co/214X9sMh/DSC0447.jpg',
+                'https://i.ibb.co/5XF3QBPm/DSC0370.jpg',
+                'https://i.ibb.co/yBNfyg1M/DSC0374.jpg',
+                'https://i.ibb.co/bTPRRh8/Imagen-de-Whats-App-2025-05-18-a-las-10-45-11-10f536fe.jpg',
+                'https://i.ibb.co/MyNqSXsY/Imagen-de-Whats-App-2025-07-09-a-las-15-43-05-2efbcb2c.jpg',
+                'https://i.ibb.co/vvHs83my/DSC0309.jpg',
+                'https://i.ibb.co/hRTFzsL6/DSC0316.jpg',
+                'https://i.ibb.co/Xf76gx2g/DSC0335.jpg',
+                'https://i.ibb.co/NgHKhjf0/DSC0339.jpg',
+                'https://i.ibb.co/ynRSFnwp/Imagen-de-Whats-App-2025-07-09-a-las-15-43-12-6943d98c.jpg',
+                'https://i.ibb.co/ks7sdGQp/DSC0344.jpg',
+                'https://i.ibb.co/wZhdh0CV/Imagen-de-Whats-App-2025-07-09-a-las-15-43-15-f76aa485.jpg',
+                'https://i.ibb.co/WNMd6LGQ/DSC0392.jpg',
+                'https://i.ibb.co/C3HcWYWM/DSC0386.jpg',
+                'https://i.ibb.co/4RbyFHF3/DSC0442.jpg',
+                'https://i.ibb.co/5gCRLv20/DSC0389.jpg'
+            ];
+
+            // Render gallery images
+            images.forEach(src => {
+                const imgContainer = document.createElement('div');
+                imgContainer.classList.add('w-full', 'h-48', 'relative', 'overflow-hidden', 'rounded-lg', 'shadow-md');
+
+                const img = document.createElement('img');
+                img.src = src;
+                img.alt = 'Imagen de la propiedad';
+                img.classList.add('w-full', 'h-full', 'object-cover', 'transition-transform', 'duration-300', 'hover:scale-105');
+
+                imgContainer.appendChild(img);
+                galleryGrid.appendChild(imgContainer);
+            });
+
+            // Calculate price based on dates and guests
+            const calculatePrice = () => {
+                const checkInDate = new Date(checkInInput.value);
+                const checkOutDate = new Date(checkOutInput.value);
+                const guests = parseInt(guestsInput.value, 10);
+
+                if (!checkInInput.value || !checkOutInput.value || checkOutDate <= checkInDate || guests < 1) {
+                    totalPriceSpan.textContent = '$0 COP';
+                    totalPriceHiddenInput.value = '$0 COP'; // Update hidden field
+                    return;
+                }
+                
+                const oneDay = 1000 * 60 * 60 * 24;
+                const numberOfDays = Math.round((checkOutDate.getTime() - checkInDate.getTime()) / oneDay);
+                let total = 0;
+
+                // Definir las tarifas
+                const dailyRate = 80000; // Tarifa por noche
+                const monthlyRate = 1300000; // Tarifa por mes
+
+                // Lógica condicional para el cálculo del precio
+                if (numberOfDays >= 30) {
+                    const numberOfMonths = numberOfDays / 30.44; // Promedio de días en un mes
+                    total = Math.round(numberOfMonths * monthlyRate * guests);
+                } else {
+                    total = numberOfDays * dailyRate * guests;
+                }
+
+                totalPriceSpan.textContent = `$${total.toLocaleString('es-CO')} COP`;
+                totalPriceHiddenInput.value = `$${total.toLocaleString('es-CO')} COP`; // Update hidden field
+            };
+
+            // Event listeners for date changes
+            checkInInput.addEventListener('change', calculatePrice);
+            checkOutInput.addEventListener('change', () => {
+                if (checkInInput.value && checkOutInput.value && checkInInput.value >= checkOutInput.value) {
+                    messageTitle.textContent = '¡Error en las fechas!';
+                    messageText.textContent = 'La fecha de salida debe ser posterior a la fecha de llegada.';
+                    messageContainer.classList.remove('hidden');
+                    messageContainer.classList.add('flex');
+                    checkOutInput.value = '';
+                }
+                calculatePrice();
+            });
+            guestsInput.addEventListener('input', calculatePrice);
+
+            // Función para mostrar el modal con un mensaje y un botón de copia
+            const showModalWithCopy = (title, text, copyText, buttonColor) => {
+                messageTitle.textContent = title;
+                messageText.innerHTML = text;
+                messageContainer.classList.remove('hidden');
+                messageContainer.classList.add('flex');
+
+                const copyButton = document.getElementById('copy-button');
+                if (copyButton) {
+                    copyButton.classList.remove('bg-blue-600', 'bg-green-600');
+                    copyButton.classList.add(buttonColor);
+                    copyButton.onclick = () => {
+                        const tempInput = document.createElement('textarea');
+                        tempInput.value = copyText;
+                        document.body.appendChild(tempInput);
+                        tempInput.select();
+                        document.execCommand('copy');
+                        document.body.removeChild(tempInput);
+
+                        // Muestra un mensaje de éxito en el modal en lugar de un alert
+                        const originalText = copyButton.textContent;
+                        copyButton.textContent = '¡Copiado!';
+                        copyButton.classList.remove(buttonColor);
+                        copyButton.classList.add('bg-gray-400');
+                        setTimeout(() => {
+                            copyButton.textContent = originalText;
+                            copyButton.classList.add(buttonColor);
+                            copyButton.classList.remove('bg-gray-400');
+                        }, 2000);
+                    };
+                }
+            };
             
-            calendarDaysEl.appendChild(dayEl);
-        }
-    };
+            // Event listeners para las tarjetas de pago
+            transferenciaBancariaCard.addEventListener('click', () => {
+                showModalWithCopy(
+                    'Transferencia Bancaria',
+                    `<p class="text-sm font-medium">Banco Davivienda</p><p class="text-xl font-bold text-gray-800">Cuenta de Ahorros: 1020945498</p><p class="text-sm font-medium">Titular: Olga Perez</p><div class="mt-4"><button id="copy-button" class="py-2 px-4 text-white rounded-md hover:opacity-90 transition-colors text-sm">Copiar Número</button></div>`,
+                    '1020945498',
+                    'bg-blue-600'
+                );
+            });
 
-    const handleDayClick = (date, element) => {
-        if (element.classList.contains('selected')) {
-            // Deselect day
-            element.classList.remove('selected');
-            selectedDates = selectedDates.filter(d => d !== date);
-        } else {
-            // Select day
-            element.classList.add('selected');
-            selectedDates.push(date);
-        }
-        selectedDates.sort();
+            plataformasPagoCard.addEventListener('click', () => {
+                showModalWithCopy(
+                    'Plataformas de Pago',
+                    `<p class="text-xl font-bold text-gray-800">Nequi: 3112129116</p><div class="mt-4"><button id="copy-button" class="py-2 px-4 text-white rounded-md hover:opacity-90 transition-colors text-sm">Copiar Número</button></div>`,
+                    '3112129116',
+                    'bg-green-600'
+                );
+            });
 
-        if (selectedDates.length > 0) {
-            selectedDatesEl.textContent = selectedDates.join(', ');
-            bookingFormEl.classList.remove('hidden');
-        } else {
-            bookingFormEl.classList.add('hidden');
-        }
-    };
-
-    // Form submission
-    submitBookingBtn.addEventListener('click', async () => {
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
-
-        if (!name || !email || selectedDates.length === 0) {
-            showMessage('Error', 'Por favor, introduce tu nombre, correo electrónico y selecciona al menos una fecha.');
-            return;
-        }
-
-        const userId = auth.currentUser.uid || crypto.randomUUID();
-        const bookingsCollection = collection(db, `artifacts/${appId}/users/${userId}/bookings`);
-        const userDocRef = doc(db, `artifacts/${appId}/users/${userId}/profile`, 'info');
-
-        try {
-            // Use a transaction to ensure atomic operations
-            await runTransaction(db, async (transaction) => {
-                const bookingData = {
-                    name,
-                    email,
-                    message,
-                    checkIn: selectedDates[0],
-                    checkOut: selectedDates[selectedDates.length - 1],
-                    dates: selectedDates,
-                    createdAt: new Date().toISOString()
-                };
-
-                const bookingDocRef = doc(bookingsCollection);
-                transaction.set(bookingDocRef, bookingData);
-                transaction.set(userDocRef, { lastBookingDate: new Date().toISOString() }, { merge: true });
+            pagoEfectivoCard.addEventListener('click', () => {
+                messageTitle.textContent = 'Pago en Efectivo';
+                messageText.textContent = 'Para elegir esta opción, el pago se realiza en su totalidad al llegar a la casa.';
+                messageContainer.classList.remove('hidden');
+                messageContainer.classList.add('flex');
             });
             
-            showMessage('¡Reserva Exitosa!', 'Tu reserva ha sido enviada. Nos pondremos en contacto contigo pronto. Gracias!');
-            // Reset state
-            selectedDates = [];
-            bookingFormEl.classList.add('hidden');
-            renderCalendar(); // Re-render to show updated bookings
-        } catch (e) {
-            console.error('Transaction failed', e);
-            showMessage('Error', 'Hubo un problema al procesar tu reserva. Por favor, inténtalo de nuevo.');
-        }
-    });
+            // Lógica de manejo de envío de formulario para evitar la recarga de la página
+            bookingForm.addEventListener('submit', async (e) => {
+                // Evita el comportamiento de envío de formulario predeterminado
+                e.preventDefault();
 
-    prevMonthBtn.addEventListener('click', () => {
-        currentDate.setMonth(currentDate.getMonth() - 1);
-        renderCalendar();
-    });
+                const form = e.target;
+                const formUrl = form.action;
+                const formData = new FormData(form);
 
-    nextMonthBtn.addEventListener('click', () => {
-        currentDate.setMonth(currentDate.getMonth() + 1);
-        renderCalendar();
-    });
+                submitButton.textContent = 'Enviando...';
+                submitButton.disabled = true;
+                submitButton.classList.add('opacity-50', 'cursor-not-allowed');
 
-    // Initial load
-    window.onload = async function() {
-        await initAuth();
-        createGallery();
-        updateGallery();
-        renderCalendar();
-    };
-</script>
+                try {
+                    const response = await fetch(formUrl, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                    
+                    const responseData = await response.json();
+
+                    if (response.ok) {
+                        messageTitle.textContent = '¡Reserva Enviada!';
+                        messageText.textContent = 'Gracias por tu interés. Hemos recibido tu solicitud de reserva y nos pondremos en contacto contigo pronto.';
+                        messageContainer.classList.remove('hidden');
+                        messageContainer.classList.add('flex');
+                        
+                        // Limpiar el formulario después del envío exitoso
+                        form.reset();
+                        calculatePrice(); // Recalcula el precio a 0
+                    } else {
+                        messageTitle.textContent = '¡Error al Enviar!';
+                        messageText.textContent = 'Hubo un problema al procesar tu solicitud. Por favor, inténtalo de nuevo o contáctanos directamente por WhatsApp.';
+                        messageContainer.classList.remove('hidden');
+                        messageContainer.classList.add('flex');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    messageTitle.textContent = '¡Error de Conexión!';
+                    messageText.textContent = 'No pudimos conectar con el servidor. Verifica tu conexión a internet e inténtalo de nuevo.';
+                    messageContainer.classList.remove('hidden');
+                    messageContainer.classList.add('flex');
+                } finally {
+                    submitButton.textContent = 'Reservar Ahora';
+                    submitButton.disabled = false;
+                    submitButton.classList.remove('opacity-50', 'cursor-not-allowed');
+                }
+            });
+
+            // Close modal functionality
+            closeMessageButton.addEventListener('click', () => {
+                messageContainer.classList.add('hidden');
+                messageContainer.classList.remove('flex');
+            });
+            
+            // Set initial price on page load
+            calculatePrice();
+        });
+    </script>
+
 </body>
-</html
+</html>
