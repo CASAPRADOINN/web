@@ -1,177 +1,177 @@
 {
-  "habitaciones": [
-    {
-      "nombre": "Habitación 1: Jericó",
-      "carpeta": "1 JERICO",
-      "fotos": [
-        "foto 1.jpg.jpg",
-        "foto2.jpg.jpg",
-        "foto3.jpg.jpg"
-      ]
-    },
-    {
-      "nombre": "Habitación 2: Jardín",
-      "carpeta": "#2 JARDIN",
-      "fotos": [
-        "foto 1.jpg.jpg",
-        "foto2.jpg.jpg",
-        "foto3.jpg.jpg"
-      ]
-    },
-    {
-      "nombre": "Habitación 3: Guatapé",
-      "carpeta": "#3 GUATAPE",
-      "fotos": [
-        "foto 1.jpg.jpg",
-        "foto2.jpg.jpg",
-        "foto3.jpg.jpg"
-      ]
-    },
-    {
-      "nombre": "Habitación 4: Santa Fe de Antioquia",
-      "carpeta": "#4 SANTA FE DE ANTIOQUIA",
-      "fotos": [
-        "foto 1.jpg.jpg",
-        "foto2.jpg.jpg",
-        "foto3.jpg.jpg"
-      ]
-    },
-    {
-      "nombre": "Habitación 5: San Jerónimo",
-      "carpeta": "#5 SAN JERONIMO",
-      "fotos": [
-        "foto 1.jpg.jpg",
-        "foto2.jpg.jpg",
-        "foto3.jpg.jpg"
-      ]
-    },
-    {
-      "nombre": "Habitación 6: Marinilla",
-      "carpeta": "#6 MARINILLA",
-      "fotos": [
-        "foto 1.jpg.jpg",
-        "foto2.jpg.jpg",
-        "foto3.jpg.jpg"
-      ]
-    },
-    {
-      "nombre": "Habitación 7: La Ceja",
-      "carpeta": "#7 LA CEJA",
-      "fotos": [
-        "foto 1.jpg.jpg",
-        "foto2.jpg.jpg",
-        "foto3.jpg.jpg"
-      ]
-    },
-    {
-      "nombre": "Habitación 8: San Carlos",
-      "carpeta": "#8 SAN CARLOS",
-      "fotos": [
-        "foto 1.jpg.jpg",
-        "foto2.jpg.jpg",
-        "foto3.jpg.jpg"
-      ]
-    },
-    {
-      "nombre": "Habitación 10: Guarne",
-      "carpeta": "#10 GUARNE",
-      "fotos": [
-        "foto 1.jpg.jpg",
-        "foto2.jpg.jpg",
-        "foto3.jpg.jpg"
-      ]
-    },
-    {
-      "nombre": "Habitación 11: Sopetrán",
-      "carpeta": "#11 SOPETRAN",
-      "fotos": [
-        "foto 1.jpg.jpg",
-        "foto2.jpg.jpg",
-        "foto3.jpg.jpg"
-      ]
-    },
-    {
-      "nombre": "Habitación 12: La Pintada",
-      "carpeta": "#12 LA PINTADA",
-      "fotos": [
-        "foto 1.jpg.jpg",
-        "foto2.jpg.jpg",
-        "foto3.jpg.jpg"
-      ]
-    },
-    {
-      "nombre": "Habitación 13: San Pedro de los Milagros",
-      "carpeta": "#13 SAN PEDRO DE LOS MILAGROS",
-      "fotos": [
-        "foto 1.jpg.jpg",
-        "foto2.jpg.jpg",
-        "foto3.jpg.jpg"
-      ]
-    },
-    {
-      "nombre": "Habitación 14: Envigado",
-      "carpeta": "#14 ENVIGADO",
-      "fotos": [
-        "foto 1.jpg.jpg",
-        "foto2.jpg.jpg",
-        "foto3.jpg.jpg"
-      ]
-    },
-    {
-      "nombre": "Habitación 15: Copacabana",
-      "carpeta": "#15 COPACABANA",
-      "fotos": [
-        "foto 1.jpg.jpg",
-        "foto2.jpg.jpg",
-        "foto3.jpg.jpg"
-      ]
-    },
-    {
-      "nombre": "Habitación 16: Itagüí",
-      "carpeta": "#16 ITAGUI",
-      "fotos": [
-        "foto 1.jpg.jpg",
-        "foto2.jpg.jpg",
-        "foto3.jpg.jpg"
-      ]
-    },
-    {
-      "nombre": "Habitación 17: Candelaria",
-      "carpeta": "#17 CANDELARIA",
-      "fotos": [
-        "foto 1.jpg.jpg",
-        "foto2.jpg.jpg",
-        "foto3.jpg.jpg"
-      ]
-    },
-    {
-      "nombre": "Habitación 18: El Poblado",
-      "carpeta": "#18 EL POBLADO",
-      "fotos": [
-        "baño.jpg",
-        "foto 1.jpg.jpg",
-        "foto 2.jpg.jpg",
-        "foto 3.jpg.jpg",
-        "foto 4.jpg.jpg"
-      ]
-    },
-    {
-      "nombre": "Habitación 19: Carmen de Viboral",
-      "carpeta": "#19 CARMEN DE VIBORAL",
-      "fotos": [
-        "foto 1.jpg.jpg",
-        "foto2.jpg.jpg",
-        "foto3.jpg.jpg"
-      ]
-    },
-    {
-      "nombre": "Habitación 20: La oficina",
-      "carpeta": "#20 LA OFICINA",
-      "fotos": [
-        "foto 1.jpg.jpg",
-        "foto2.jpg.jpg",
-        "foto3.jpg.jpg"
-      ]
-    }
-  ]
+  "habitaciones": [
+    {
+      "nombre": "Habitación 1: Jericó",
+      "carpeta": "1 JERICÓ",
+      "fotos": [
+        "foto 1.jpg",
+        "foto2.jpg",
+        "foto3.jpg"
+      ]
+    },
+    {
+      "nombre": "Habitación 2: Jardín",
+      "carpeta": "#2 JARDÍN",
+      "fotos": [
+        "foto 1.jpg",
+        "foto2.jpg",
+        "foto3.jpg"
+      ]
+    },
+    {
+      "nombre": "Habitación 3: Guatapé",
+      "carpeta": "#3 GUATAPÉ",
+      "fotos": [
+        "foto 1.jpg",
+        "foto2.jpg",
+        "foto3.jpg"
+      ]
+    },
+    {
+      "nombre": "Habitación 4: Santa Fe de Antioquia",
+      "carpeta": "#4 SANTA FE DE ANTIOQUIA",
+      "fotos": [
+        "foto 1.jpg",
+        "foto2.jpg",
+        "foto3.jpg"
+      ]
+    },
+    {
+      "nombre": "Habitación 5: San Jerónimo",
+      "carpeta": "#5 SAN JERÓNIMO",
+      "fotos": [
+        "foto 1.jpg",
+        "foto2.jpg",
+        "foto3.jpg"
+      ]
+    },
+    {
+      "nombre": "Habitación 6: Marinilla",
+      "carpeta": "#6 MARINILLA",
+      "fotos": [
+        "foto 1.jpg",
+        "foto2.jpg",
+        "foto3.jpg"
+      ]
+    },
+    {
+      "nombre": "Habitación 7: La Ceja",
+      "carpeta": "#7 LA CEJA",
+      "fotos": [
+        "foto 1.jpg",
+        "foto2.jpg",
+        "foto3.jpg"
+      ]
+    },
+    {
+      "nombre": "Habitación 8: San Carlos",
+      "carpeta": "#8 SAN CARLOS",
+      "fotos": [
+        "foto 1.jpg",
+        "foto2.jpg",
+        "foto3.jpg"
+      ]
+    },
+    {
+      "nombre": "Habitación 10: Guarne",
+      "carpeta": "#10 GUARNE",
+      "fotos": [
+        "foto 1.jpg",
+        "foto2.jpg",
+        "foto3.jpg"
+      ]
+    },
+    {
+      "nombre": "Habitación 11: Sopetrán",
+      "carpeta": "#11 SOPETRÁN",
+      "fotos": [
+        "foto 1.jpg",
+        "foto2.jpg",
+        "foto3.jpg"
+      ]
+    },
+    {
+      "nombre": "Habitación 12: La Pintada",
+      "carpeta": "#12 LA PINTADA",
+      "fotos": [
+        "foto 1.jpg",
+        "foto2.jpg",
+        "foto3.jpg"
+      ]
+    },
+    {
+      "nombre": "Habitación 13: San Pedro de los Milagros",
+      "carpeta": "#13 SAN PEDRO DE LOS MILAGROS",
+      "fotos": [
+        "foto 1.jpg",
+        "foto2.jpg",
+        "foto3.jpg"
+      ]
+    },
+    {
+      "nombre": "Habitación 14: Envigado",
+      "carpeta": "#14 ENVIGADO",
+      "fotos": [
+        "foto 1.jpg",
+        "foto2.jpg",
+        "foto3.jpg"
+      ]
+    },
+    {
+      "nombre": "Habitación 15: Copacabana",
+      "carpeta": "#15 COPACABANA",
+      "fotos": [
+        "foto 1.jpg",
+        "foto2.jpg",
+        "foto3.jpg"
+      ]
+    },
+    {
+      "nombre": "Habitación 16: Itagüí",
+      "carpeta": "#16 ITAGÜÍ",
+      "fotos": [
+        "foto 1.jpg",
+        "foto2.jpg",
+        "foto3.jpg"
+      ]
+    },
+    {
+      "nombre": "Habitación 17: Candelaria",
+      "carpeta": "#17 CANDELARIA",
+      "fotos": [
+        "foto 1.jpg",
+        "foto2.jpg",
+        "foto3.jpg"
+      ]
+    },
+    {
+      "nombre": "Habitación 18: El Poblado",
+      "carpeta": "#18 EL POBLADO",
+      "fotos": [
+        "baño.jpg",
+        "foto 1.jpg",
+        "foto 2.jpg",
+        "foto 3.jpg",
+        "foto 4.jpg"
+      ]
+    },
+    {
+      "nombre": "Habitación 19: Carmen de Viboral",
+      "carpeta": "#19 CARMEN DE VIBORAL",
+      "fotos": [
+        "foto 1.jpg",
+        "foto2.jpg",
+        "foto3.jpg"
+      ]
+    },
+    {
+      "nombre": "Habitación 20: La oficina",
+      "carpeta": "#20 LA OFICINA",
+      "fotos": [
+        "foto 1.jpg",
+        "foto2.jpg",
+        "foto3.jpg"
+      ]
+    }
+  ]
 }
