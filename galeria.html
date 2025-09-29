@@ -2,24 +2,40 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Galería de Habitaciones</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CASA PRADO INN - Galería de Fotos</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <header>
-        <h1>Galería de Habitaciones</h1>
-        <p>Explora nuestras 19 habitaciones.</p>
-    </header>
+<body class="bg-gray-100">
 
-    <main>
-        <section id="lista-habitaciones"></section>
-        <section id="galeria-fotos"></section>
-    </main>
+    <div class="sticky top-0 z-50 w-full max-w-5xl bg-amber-50 bg-opacity-90 backdrop-blur-sm rounded-xl shadow-lg p-4 mb-8">
+        <div class="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+            <a href="#top" class="hover:opacity-80 transition-opacity">
+                <img src="https://i.ibb.co/WFRq2pmC/logo.jpg" alt="Logo de The Co-Working & Rooftop House" class="h-12 rounded-full">
+            </a>
 
-    <footer>
-        <p>Visita nuestro sitio web en casapradoinn.github.io/web</p>
-    </footer>
+            <div class="flex flex-wrap justify-center space-x-4 sm:space-x-6 text-blue-900">
+                <a href="#caracteristicas" class="hover:text-blue-600 transition-colors font-medium">Características</a>
+                <a href="galeria.html" class="hover:text-blue-600 transition-colors font-medium">Galería de fotos</a>
+                <a href="#acomodacion-precio" class="hover:text-blue-600 transition-colors font-medium">Acomodación y Precio</a>
+                <a href="#pagos" class="hover:text-blue-600 transition-colors font-medium">Métodos de Pago</a>
+                <a href="#ubicacion" class="hover:text-blue-600 transition-colors font-medium">Ubicación</a>
+            </div>
+        </div>
+    </div>
 
-    <script src="galeria.js"></script>
+    <div class="container mx-auto p-4 max-w-5xl">
+        <section id="galeria-seccion" class="mt-12 mb-12">
+            <h2 class="text-3xl font-bold text-center mb-8 text-blue-900">Galería de Fotos</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                 <img src="web/galeria/FOTO1.jpg" alt="Foto de habitación" class="rounded-lg shadow-lg">
+                 <img src="web/galeria/FOTO2.jpg" alt="Foto de habitación" class="rounded-lg shadow-lg">
+                 </div>
+            
+        </section>
+        
+    </div>
+
 </body>
 </html>
