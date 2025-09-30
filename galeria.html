@@ -5,6 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CASA PRADO INN - Galería de Fotos</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos CSS personalizados para la cuadrícula de 3 fotos por habitación */
+        .grid-gallery {
+            display: grid;
+            /* Usamos 3 columnas para que se vean bien en pantallas grandes */
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 16px; /* Espacio entre las fotos */
+        }
+        .grid-gallery img {
+            border-radius: 8px; /* Bordes redondeados */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+            aspect-ratio: 1 / 1; /* Hace que las imágenes sean cuadradas */
+            object-fit: cover; /* Asegura que la imagen cubra el área sin deformarse */
+            width: 100%; /* Ocupa el 100% de la columna */
+        }
+
+        /* En pantallas pequeñas, volvemos a una sola columna para que se vea bien */
+        @media (max-width: 640px) {
+             .grid-gallery {
+                 grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body class="bg-gray-100">
 
@@ -28,106 +51,86 @@
         <section id="galeria-seccion" class="mt-12 mb-12">
             <h2 class="text-3xl font-bold text-center mb-8 text-blue-900">Galería de Habitaciones</h2>
             
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                 <img src="0 GUARNE/foto1.jpg.jpg" alt="Habitación Guarne 1" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="0 GUARNE/foto2.jpg.jpg" alt="Habitación Guarne 2" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="0 GUARNE/foto3.jpg.jpg" alt="Habitación Guarne 3" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="0 GUARNE/foto4.jpg.jpg" alt="Habitación Guarne 4" class="rounded-lg shadow-lg aspect-square object-cover">
+            <div class="grid-gallery">
+                 <img src="0 GUARNE/guarne 1.jpg" alt="Habitación Guarne 1">
+                 <img src="0 GUARNE/guarne 2.jpg" alt="Habitación Guarne 2">
+                 <img src="0 GUARNE/guarne 3.jpg" alt="Habitación Guarne 3">
 
-                 <img src="1 JERICÓN/foto1.jpg.jpg" alt="Habitación Jericón 1" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="1 JERICÓN/foto2.jpg.jpg" alt="Habitación Jericón 2" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="1 JERICÓN/foto3.jpg.jpg" alt="Habitación Jericón 3" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="1 JERICÓN/foto4.jpg.jpg" alt="Habitación Jericón 4" class="rounded-lg shadow-lg aspect-square object-cover">
+                 <img src="1 JERICÓN/jerico1.jpg" alt="Habitación Jericón 1">
+                 <img src="1 JERICÓN/jerico2.jpg" alt="Habitación Jericón 2">
+                 <img src="1 JERICÓN/jerico3.jpg" alt="Habitación Jericón 3">
 
-                 <img src="#2 JARDÍN/foto1.jpg.jpg" alt="Habitación Jardín 1" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#2 JARDÍN/foto2.jpg.jpg" alt="Habitación Jardín 2" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#2 JARDÍN/foto3.jpg.jpg" alt="Habitación Jardín 3" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#2 JARDÍN/foto4.jpg.jpg" alt="Habitación Jardín 4" class="rounded-lg shadow-lg aspect-cover">
+                 <img src="#2 JARDÍN/jardin1.jpg" alt="Habitación Jardín 1">
+                 <img src="#2 JARDÍN/jardin2.jpg" alt="Habitación Jardín 2">
+                 <img src="#2 JARDÍN/jardin3.jpg" alt="Habitación Jardín 3">
 
-                 <img src="#3 GUATAPÉ/foto1.jpg.jpg" alt="Habitación Guatapé 1" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#3 GUATAPÉ/foto2.jpg.jpg" alt="Habitación Guatapé 2" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#3 GUATAPÉ/foto3.jpg.jpg" alt="Habitación Guatapé 3" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#3 GUATAPÉ/foto4.jpg.jpg" alt="Habitación Guatapé 4" class="rounded-lg shadow-lg aspect-square object-cover">
+                 <img src="#3 GUATAPÉ/guatape 1.jpg" alt="Habitación Guatapé 1">
+                 <img src="#3 GUATAPÉ/guatape 2.jpg" alt="Habitación Guatapé 2">
+                 <img src="#3 GUATAPÉ/guatape 3.jpg" alt="Habitación Guatapé 3">
 
-                 <img src="#4 SANTA FE DE ANTIOQUIA/foto1.jpg.jpg" alt="Habitación Santa Fe de Antioquia 1" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#4 SANTA FE DE ANTIOQUIA/foto2.jpg.jpg" alt="Habitación Santa Fe de Antioquia 2" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#4 SANTA FE DE ANTIOQUIA/foto3.jpg.jpg" alt="Habitación Santa Fe de Antioquia 3" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#4 SANTA FE DE ANTIOQUIA/foto4.jpg.jpg" alt="Habitación Santa Fe de Antioquia 4" class="rounded-lg shadow-lg aspect-square object-cover">
+                 <img src="#4 SANTA FE DE ANTIOQUIA/santafe de antioquia 1.jpg" alt="Habitación Santa Fe de Antioquia 1">
+                 <img src="#4 SANTA FE DE ANTIOQUIA/santafe de antioquia 2.jpg" alt="Habitación Santa Fe de Antioquia 2">
+                 <img src="#4 SANTA FE DE ANTIOQUIA/santafe de antioquia 3.jpg" alt="Habitación Santa Fe de Antioquia 3">
 
-                 <img src="#5 SAN JERÓNIMO/foto1.jpg.jpg" alt="Habitación San Jerónimo 1" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#5 SAN JERÓNIMO/foto2.jpg.jpg" alt="Habitación San Jerónimo 2" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#5 SAN JERÓNIMO/foto3.jpg.jpg" alt="Habitación San Jerónimo 3" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#5 SAN JERÓNIMO/foto4.jpg.jpg" alt="Habitación San Jerónimo 4" class="rounded-lg shadow-lg aspect-square object-cover">
+                 <img src="#5 SAN JERÓNIMO/sanjeronimo 1.jpg" alt="Habitación San Jerónimo 1">
+                 <img src="#5 SAN JERÓNIMO/sanjeronimo 2.jpg" alt="Habitación San Jerónimo 2">
+                 <img src="#5 SAN JERÓNIMO/sanjeronimo 3.jpg" alt="Habitación San Jerónimo 3">
 
-                 <img src="#6 MARINILLA/foto1.jpg.jpg" alt="Habitación Marinilla 1" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#6 MARINILLA/foto2.jpg.jpg" alt="Habitación Marinilla 2" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#6 MARINILLA/foto3.jpg.jpg" alt="Habitación Marinilla 3" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#6 MARINILLA/foto4.jpg.jpg" alt="Habitación Marinilla 4" class="rounded-lg shadow-lg aspect-square object-cover">
+                 <img src="#6 MARINILLA/marinilla 1.jpg" alt="Habitación Marinilla 1">
+                 <img src="#6 MARINILLA/marinilla 2.jpg" alt="Habitación Marinilla 2">
+                 <img src="#6 MARINILLA/marinilla 3.jpg" alt="Habitación Marinilla 3">
 
-                 <img src="#7 LA CEJA/foto1.jpg.jpg" alt="Habitación La Ceja 1" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#7 LA CEJA/foto2.jpg.jpg" alt="Habitación La Ceja 2" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#7 LA CEJA/foto3.jpg.jpg" alt="Habitación La Ceja 3" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#7 LA CEJA/foto4.jpg.jpg" alt="Habitación La Ceja 4" class="rounded-lg shadow-lg aspect-square object-cover">
+                 <img src="#7 LA CEJA/laceja 1.jpg" alt="Habitación La Ceja 1">
+                 <img src="#7 LA CEJA/laceja 2.jpg" alt="Habitación La Ceja 2">
+                 <img src="#7 LA CEJA/laceja 3.jpg" alt="Habitación La Ceja 3">
 
-                 <img src="#8 SAN CARLOS/foto1.jpg.jpg" alt="Habitación San Carlos 1" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#8 SAN CARLOS/foto2.jpg.jpg" alt="Habitación San Carlos 2" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#8 SAN CARLOS/foto3.jpg.jpg" alt="Habitación San Carlos 3" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#8 SAN CARLOS/foto4.jpg.jpg" alt="Habitación San Carlos 4" class="rounded-lg shadow-lg aspect-square object-cover">
+                 <img src="#8 SAN CARLOS/sancarlos 1.jpg" alt="Habitación San Carlos 1">
+                 <img src="#8 SAN CARLOS/sancarlos 2.jpg" alt="Habitación San Carlos 2">
+                 <img src="#8 SAN CARLOS/sancarlos 3.jpg" alt="Habitación San Carlos 3">
 
-                 <img src="#10 GUARNE/foto1.jpg.jpg" alt="Habitación Guarne 10 - 1" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#10 GUARNE/foto2.jpg.jpg" alt="Habitación Guarne 10 - 2" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#10 GUARNE/foto3.jpg.jpg" alt="Habitación Guarne 10 - 3" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#10 GUARNE/foto4.jpg.jpg" alt="Habitación Guarne 10 - 4" class="rounded-lg shadow-lg aspect-square object-cover">
+                 <img src="#10 GUARNE/guarne10 1.jpg" alt="Habitación Guarne 10 - 1">
+                 <img src="#10 GUARNE/guarne10 2.jpg" alt="Habitación Guarne 10 - 2">
+                 <img src="#10 GUARNE/guarne10 3.jpg" alt="Habitación Guarne 10 - 3">
 
-                 <img src="#11 SOPETRAN/foto1.jpg.jpg" alt="Habitación Sopetrán 1" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#11 SOPETRAN/foto2.jpg.jpg" alt="Habitación Sopetrán 2" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#11 SOPETRAN/foto3.jpg.jpg" alt="Habitación Sopetrán 3" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#11 SOPETRAN/foto4.jpg.jpg" alt="Habitación Sopetrán 4" class="rounded-lg shadow-lg aspect-square object-cover">
+                 <img src="#11 SOPETRAN/sopetran 1.jpg" alt="Habitación Sopetrán 1">
+                 <img src="#11 SOPETRAN/sopetran 2.jpg" alt="Habitación Sopetrán 2">
+                 <img src="#11 SOPETRAN/sopetran 3.jpg" alt="Habitación Sopetrán 3">
 
-                 <img src="#12 LA PINTADA/foto1.jpg.jpg" alt="Habitación La Pintada 1" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#12 LA PINTADA/foto2.jpg.jpg" alt="Habitación La Pintada 2" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#12 LA PINTADA/foto3.jpg.jpg" alt="Habitación La Pintada 3" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#12 LA PINTADA/foto4.jpg.jpg" alt="Habitación La Pintada 4" class="rounded-lg shadow-lg aspect-square object-cover">
+                 <img src="#12 LA PINTADA/lapintada 1.jpg" alt="Habitación La Pintada 1">
+                 <img src="#12 LA PINTADA/lapintada 2.jpg" alt="Habitación La Pintada 2">
+                 <img src="#12 LA PINTADA/lapintada 3.jpg" alt="Habitación La Pintada 3">
 
-                 <img src="#13 SAN PEDRO DE LOS MILAGROS/foto1.jpg.jpg" alt="Habitación San Pedro 1" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#13 SAN PEDRO DE LOS MILAGROS/foto2.jpg.jpg" alt="Habitación San Pedro 2" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#13 SAN PEDRO DE LOS MILAGROS/foto3.jpg.jpg" alt="Habitación San Pedro 3" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#13 SAN PEDRO DE LOS MILAGROS/foto4.jpg.jpg" alt="Habitación San Pedro 4" class="rounded-lg shadow-lg aspect-square object-cover">
+                 <img src="#13 SAN PEDRO DE LOS MILAGROS/sanpedro 1.jpg" alt="Habitación San Pedro 1">
+                 <img src="#13 SAN PEDRO DE LOS MILAGROS/sanpedro 2.jpg" alt="Habitación San Pedro 2">
+                 <img src="#13 SAN PEDRO DE LOS MILAGROS/sanpedro 3.jpg" alt="Habitación San Pedro 3">
                  
-                 <img src="#14 ENVIGADO/foto1.jpg.jpg" alt="Habitación Envigado 1" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#14 ENVIGADO/foto2.jpg.jpg" alt="Habitación Envigado 2" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#14 ENVIGADO/foto3.jpg.jpg" alt="Habitación Envigado 3" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#14 ENVIGADO/foto4.jpg.jpg" alt="Habitación Envigado 4" class="rounded-lg shadow-lg aspect-square object-cover">
+                 <img src="#14 ENVIGADO/envigado 1.jpg" alt="Habitación Envigado 1">
+                 <img src="#14 ENVIGADO/envigado 2.jpg" alt="Habitación Envigado 2">
+                 <img src="#14 ENVIGADO/envigado 3.jpg" alt="Habitación Envigado 3">
                  
-                 <img src="#15 COPACABANA/foto1.jpg.jpg" alt="Habitación Copacabana 1" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#15 COPACABANA/foto2.jpg.jpg" alt="Habitación Copacabana 2" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#15 COPACABANA/foto3.jpg.jpg" alt="Habitación Copacabana 3" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#15 COPACABANA/foto4.jpg.jpg" alt="Habitación Copacabana 4" class="rounded-lg shadow-lg aspect-square object-cover">
+                 <img src="#15 COPACABANA/copacabana 1.jpg" alt="Habitación Copacabana 1">
+                 <img src="#15 COPACABANA/copacabana 2.jpg" alt="Habitación Copacabana 2">
+                 <img src="#15 COPACABANA/copacabana 3.jpg" alt="Habitación Copacabana 3">
 
-                 <img src="#16 ITAGUI/foto1.jpg.jpg" alt="Habitación Itaguí 1" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#16 ITAGUI/foto2.jpg.jpg" alt="Habitación Itaguí 2" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#16 ITAGUI/foto3.jpg.jpg" alt="Habitación Itaguí 3" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#16 ITAGUI/foto4.jpg.jpg" alt="Habitación Itaguí 4" class="rounded-lg shadow-lg aspect-square object-cover">
+                 <img src="#16 ITAGUI/itagui 1.jpg" alt="Habitación Itaguí 1">
+                 <img src="#16 ITAGUI/itagui 2.jpg" alt="Habitación Itaguí 2">
+                 <img src="#16 ITAGUI/itagui 3.jpg" alt="Habitación Itaguí 3">
                  
-                 <img src="#17 CANDELARIA/foto1.jpg.jpg" alt="Habitación Candelaria 1" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#17 CANDELARIA/foto2.jpg.jpg" alt="Habitación Candelaria 2" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#17 CANDELARIA/foto3.jpg.jpg" alt="Habitación Candelaria 3" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#17 CANDELARIA/foto4.jpg.jpg" alt="Habitación Candelaria 4" class="rounded-lg shadow-lg aspect-square object-cover">
+                 <img src="#17 CANDELARIA/candelaria 1.jpg" alt="Habitación Candelaria 1">
+                 <img src="#17 CANDELARIA/candelaria 2.jpg" alt="Habitación Candelaria 2">
+                 <img src="#17 CANDELARIA/candelaria 3.jpg" alt="Habitación Candelaria 3">
 
-                 <img src="#18 EL POBLADO/foto1.jpg.jpg" alt="Habitación El Poblado 1" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#18 EL POBLADO/foto2.jpg.jpg" alt="Habitación El Poblado 2" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#18 EL POBLADO/foto3.jpg.jpg" alt="Habitación El Poblado 3" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#18 EL POBLADO/foto4.jpg.jpg" alt="Habitación El Poblado 4" class="rounded-lg shadow-lg aspect-square object-cover">
+                 <img src="#18 EL POBLADO/elpoblado 1.jpg" alt="Habitación El Poblado 1">
+                 <img src="#18 EL POBLADO/elpoblado 2.jpg" alt="Habitación El Poblado 2">
+                 <img src="#18 EL POBLADO/elpoblado 3.jpg" alt="Habitación El Poblado 3">
                  
-                 <img src="#19 CARMEN DE VIBORAL/foto1.jpg.jpg" alt="Habitación Carmen de Viboral 1" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#19 CARMEN DE VIBORAL/foto2.jpg.jpg" alt="Habitación Carmen de Viboral 2" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#19 CARMEN DE VIBORAL/foto3.jpg.jpg" alt="Habitación Carmen de Viboral 3" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#19 CARMEN DE VIBORAL/foto4.jpg.jpg" alt="Habitación Carmen de Viboral 4" class="rounded-lg shadow-lg aspect-square object-cover">
+                 <img src="#19 CARMEN DE VIBORAL/carmendeviboral 1.jpg" alt="Habitación Carmen de Viboral 1">
+                 <img src="#19 CARMEN DE VIBORAL/carmendeviboral 2.jpg" alt="Habitación Carmen de Viboral 2">
+                 <img src="#19 CARMEN DE VIBORAL/carmendeviboral 3.jpg" alt="Habitación Carmen de Viboral 3">
 
-                 <img src="#20 LAURELES/foto1.jpg.jpg" alt="Habitación Laureles 1" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#20 LAURELES/foto2.jpg.jpg" alt="Habitación Laureles 2" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#20 LAURELES/foto3.jpg.jpg" alt="Habitación Laureles 3" class="rounded-lg shadow-lg aspect-square object-cover">
-                 <img src="#20 LAURELES/foto4.jpg.jpg" alt="Habitación Laureles 4" class="rounded-lg shadow-lg aspect-square object-cover">
+                 <img src="#20 LAURELES/laureles 1.jpg" alt="Habitación Laureles 1">
+                 <img src="#20 LAURELES/laureles 2.jpg" alt="Habitación Laureles 2">
+                 <img src="#20 LAURELES/laureles 3.jpg" alt="Habitación Laureles 3">
             </div>
             
         </section>
