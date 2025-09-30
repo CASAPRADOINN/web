@@ -1,16 +1,7 @@
 {
   "habitaciones": [
     {
-      "nombre": "Habitación 0: Guarne",
-      "carpeta": "10 GUARNE",
-      "fotos": [
-        "guarne1.jpg",
-        "guarne2.jpg",
-        "guarne3.jpg"
-      ]
-    },
-    {
-      "nombre": "Habitación 1: Jericón",
+      "nombre": "Habitación 1: Dabeiba",
       "carpeta": "01 DABEIBA",
       "fotos": [
         "dabeiba1.jpg",
@@ -19,7 +10,7 @@
       ]
     },
     {
-      "nombre": "Habitación 2: Jardín",
+      "nombre": "Habitación 2: Barbosa",
       "carpeta": "02 BARBOSA",
       "fotos": [
         "barbosa1.jpg",
@@ -28,7 +19,7 @@
       ]
     },
     {
-      "nombre": "Habitación 3: Guatapé",
+      "nombre": "Habitación 3: Belmira",
       "carpeta": "03 BELMIRA",
       "fotos": [
         "belmira1.jpg",
@@ -46,7 +37,7 @@
       ]
     },
     {
-      "nombre": "Habitación 5: San Jerónimo",
+      "nombre": "Habitación 5: Rionegro",
       "carpeta": "05 RIONEGRO",
       "fotos": [
         "rionegro1.jpg",
@@ -82,7 +73,15 @@
       ]
     },
     {
-      "nombre": "Habitación 10: Guarne",
+      "nombre": "Habitación 9: Urrao",
+      "carpeta": "09 URRAO",
+      "fotos": [
+        "urrao1.jpg",
+        "urrao2.jpg",
+        ]
+    },
+    {
+       "nombre": "Habitación 10: Guarne",
       "carpeta": "10 GUARNE",
       "fotos": [
         "guarne1.jpg",
@@ -171,18 +170,9 @@
         "carmendeviboral2.jpg",
         "carmendeviboral3.jpg"
       ]
-    },
+     },
     {
-      "nombre": "Habitación 09: Urrao",
-      "carpeta": "09 URRAO",
-      "fotos": [
-        "urrao.jpg",
-        "urrao2.jpg",
-        "urrao3.jpg"
-         ]
-    },
-    {
-      "nombre": "Habitación 20: Laureles",
+     "nombre": "Habitación 20: Laureles",
       "carpeta": "20 LAURELES",
       "fotos": [
         "laureles1.jpg",
