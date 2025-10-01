@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CASA PRADO INN - Galería de Fotos</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="/web/style.css"> 
     <style>
         /* Estilos CSS personalizados para la cuadrícula de 2 fotos por habitación */
         .grid-gallery {
-            /* Mantenemos 2 columnas, pero si solo hay 2 imágenes, se distribuirán correctamente */
+            /* CORRECCIÓN: 2 columnas para mostrar 2 fotos por sección */
             display: grid;
-            grid-template-columns: repeat(3, 1fr); 
+            grid-template-columns: repeat(2, 1fr); 
             gap: 16px; 
         }
         .grid-gallery img {
