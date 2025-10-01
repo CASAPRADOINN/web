@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Definición de la RUTA CORREGIDA: Apunta a la carpeta 'fotos/'
+    // RUTA CORREGIDA: Apunta a la carpeta 'fotos/'
     const FOTOS_PATH = "fotos/"; 
 
+    // Definición de las imágenes de la galería con DOS fotos por sección.
     const galleryItems = [
         {
             title: "Habitación Individual #1 (Piso 2)",
@@ -43,17 +44,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const galleryContainer = document.querySelector('.container.mx-auto section#galeria-seccion');
 
     galleryItems.forEach(item => {
+        // Crear el contenedor de la sección de la habitación
         const sectionDiv = document.createElement('div');
         sectionDiv.classList.add('mb-12');
 
+        // Crear el título de la habitación
         const h3 = document.createElement('h3');
         h3.classList.add('text-2xl', 'font-semibold', 'mb-4', 'text-gray-800', 'border-b', 'pb-2');
         h3.textContent = item.title;
         sectionDiv.appendChild(h3);
 
+        // Crear el contenedor de la cuadrícula de fotos
         const gridDiv = document.createElement('div');
         gridDiv.classList.add('grid-gallery'); 
 
+        // Iterar sobre las DOS imágenes de la habitación
         item.images.forEach(image => {
             const img = document.createElement('img');
             img.src = image.src; 
