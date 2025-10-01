@@ -4,27 +4,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Función que transforma el título a minúsculas y sin espacios para el nombre de archivo
     const cleanName = (title) => {
+        // Esta función también elimina tildes/acentos automáticamente.
         return title
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
             .toLowerCase()
             .replace(/\s+/g, ''); 
     };
 
-    // <--- ¡CONFIGURACIÓN PARA DOBLE EXTENSIÓN .jpg.jpg! --->
+    // CONFIGURACIÓN PARA DOBLE EXTENSIÓN .jpg.jpg
     const IMAGE_SUFFIX_1 = "1.jpg.jpg"; 
     const IMAGE_SUFFIX_2 = "2.jpg.jpg"; 
-    // <------------------------------------------------------->
 
     const galleryItems = [
         // ----------------------------------------------------
         // TÍTULOS Y ARCHIVOS DE LAS 20 HABITACIONES
         // ----------------------------------------------------
         
-        // 1. DABEIDA
+        // 1. DABEIBÁ (TÍTULO VISIBLE BIEN, NOMBRE DE ARCHIVO USANDO SOLO "DABEIB")
         {
-            title: "DABEIDA", 
+            title: "DABEIBÁ", // Se muestra DABEIBÁ
             images: [
-                { src: FOTOS_PATH + cleanName("DABEIDA") + IMAGE_SUFFIX_1, alt: "Habitación Dabeida vista A" },
-                { src: FOTOS_PATH + cleanName("DABEIDA") + IMAGE_SUFFIX_2, alt: "Habitación Dabeida vista B" }
+                // Busca: /web/fotos/dabeib1.jpg.jpg
+                { src: FOTOS_PATH + cleanName("DABEIB") + IMAGE_SUFFIX_1, alt: "Habitación Dabeibá vista A" },
+                // Busca: /web/fotos/dabeib2.jpg.jpg
+                { src: FOTOS_PATH + cleanName("DABEIB") + IMAGE_SUFFIX_2, alt: "Habitación Dabeibá vista B" }
             ]
         },
         
@@ -50,8 +54,8 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             title: "SANTA FE DE ANTIOQUIA", 
             images: [
-                { src: FOTOS_PATH + cleanName("SANTAFEDEANTIOQUIA") + IMAGE_SUFFIX_1, alt: "Habitación Santa Fe de Antioquia vista A" },
-                { src: FOTOS_PATH + cleanName("SANTAFEDEANTIOQUIA") + IMAGE_SUFFIX_2, alt: "Habitación Santa Fe de Antioquia vista B" }
+                { src: FOTOS_PATH + cleanName("SANTA FE DE ANTIOQUIA") + IMAGE_SUFFIX_1, alt: "Habitación Santa Fe de Antioquia vista A" },
+                { src: FOTOS_PATH + cleanName("SANTA FE DE ANTIOQUIA") + IMAGE_SUFFIX_2, alt: "Habitación Santa Fe de Antioquia vista B" }
             ]
         },
         
@@ -77,8 +81,8 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             title: "LA CEJA", 
             images: [
-                { src: FOTOS_PATH + cleanName("LACEJA") + IMAGE_SUFFIX_1, alt: "Habitación La Ceja vista A" },
-                { src: FOTOS_PATH + cleanName("LACEJA") + IMAGE_SUFFIX_2, alt: "Habitación La Ceja vista B" }
+                { src: FOTOS_PATH + cleanName("LA CEJA") + IMAGE_SUFFIX_1, alt: "Habitación La Ceja vista A" },
+                { src: FOTOS_PATH + cleanName("LA CEJA") + IMAGE_SUFFIX_2, alt: "Habitación La Ceja vista B" }
             ]
         },
         
@@ -86,8 +90,8 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             title: "SAN CARLOS", 
             images: [
-                { src: FOTOS_PATH + cleanName("SANCARLOS") + IMAGE_SUFFIX_1, alt: "Habitación San Carlos vista A" },
-                { src: FOTOS_PATH + cleanName("SANCARLOS") + IMAGE_SUFFIX_2, alt: "Habitación San Carlos vista B" }
+                { src: FOTOS_PATH + cleanName("SAN CARLOS") + IMAGE_SUFFIX_1, alt: "Habitación San Carlos vista A" },
+                { src: FOTOS_PATH + cleanName("SAN CARLOS") + IMAGE_SUFFIX_2, alt: "Habitación San Carlos vista B" }
             ]
         },
         
@@ -122,8 +126,8 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             title: "LA PINTADA", 
             images: [
-                { src: FOTOS_PATH + cleanName("LAPINTADA") + IMAGE_SUFFIX_1, alt: "Habitación La Pintada vista A" },
-                { src: FOTOS_PATH + cleanName("LAPINTADA") + IMAGE_SUFFIX_2, alt: "Habitación La Pintada vista B" }
+                { src: FOTOS_PATH + cleanName("LA PINTADA") + IMAGE_SUFFIX_1, alt: "Habitación La Pintada vista A" },
+                { src: FOTOS_PATH + cleanName("LA PINTADA") + IMAGE_SUFFIX_2, alt: "Habitación La Pintada vista B" }
             ]
         },
         
@@ -131,8 +135,8 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             title: "SAN PEDRO DE LOS MILAGROS", 
             images: [
-                { src: FOTOS_PATH + cleanName("SANPEDRODELOSMILAGROS") + IMAGE_SUFFIX_1, alt: "Habitación San Pedro vista A" },
-                { src: FOTOS_PATH + cleanName("SANPEDRODELOSMILAGROS") + IMAGE_SUFFIX_2, alt: "Habitación San Pedro vista B" }
+                { src: FOTOS_PATH + cleanName("SAN PEDRO DE LOS MILAGROS") + IMAGE_SUFFIX_1, alt: "Habitación San Pedro vista A" },
+                { src: FOTOS_PATH + cleanName("SAN PEDRO DE LOS MILAGROS") + IMAGE_SUFFIX_2, alt: "Habitación San Pedro vista B" }
             ]
         },
         
@@ -176,8 +180,8 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             title: "EL POBLADO", 
             images: [
-                { src: FOTOS_PATH + cleanName("ELPOBLADO") + IMAGE_SUFFIX_1, alt: "Habitación El Poblado vista A" },
-                { src: FOTOS_PATH + cleanName("ELPOBLADO") + IMAGE_SUFFIX_2, alt: "Habitación El Poblado vista B" }
+                { src: FOTOS_PATH + cleanName("EL POBLADO") + IMAGE_SUFFIX_1, alt: "Habitación El Poblado vista A" },
+                { src: FOTOS_PATH + cleanName("EL POBLADO") + IMAGE_SUFFIX_2, alt: "Habitación El Poblado vista B" }
             ]
         },
         
@@ -185,14 +189,14 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             title: "CARMEN DE VIBORAL", 
             images: [
-                { src: FOTOS_PATH + cleanName("CARMENDEVIBORAL") + IMAGE_SUFFIX_1, alt: "Habitación Carmen de Viboral vista A" },
-                { src: FOTOS_PATH + cleanName("CARMENDEVIBORAL") + IMAGE_SUFFIX_2, alt: "Habitación Carmen de Viboral vista B" }
+                { src: FOTOS_PATH + cleanName("CARMEN DE VIBORAL") + IMAGE_SUFFIX_1, alt: "Habitación Carmen de Viboral vista A" },
+                { src: FOTOS_PATH + cleanName("CARMEN DE VIBORAL") + IMAGE_SUFFIX_2, alt: "Habitación Carmen de Viboral vista B" }
             ]
         },
         
         // 20. LAURELES
         {
-            title: "LAURELES", // <--- ¡COMA CORREGIDA!
+            title: "LAURELES", 
             images: [
                 { src: FOTOS_PATH + cleanName("LAURELES") + IMAGE_SUFFIX_1, alt: "Habitación Laureles vista A" },
                 { src: FOTOS_PATH + cleanName("LAURELES") + IMAGE_SUFFIX_2, alt: "Habitación Laureles vista B" }
