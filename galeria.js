@@ -1,71 +1,73 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Obtener los datos del JSON
-    fetch('habitaciones.json')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Error HTTP: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            const galleryContainer = document.querySelector('.grid-gallery');
-            if (!galleryContainer) {
-                console.error("Contenedor de galería no encontrado. Asegúrate de que tu HTML tenga un elemento con la clase '.grid-gallery'.");
-                return;
-            }
+    // Definición de las imágenes de la galería por tipo/habitación
+    // Se usa una selección de DOS de las fotos que subiste para cada sección.
+    const galleryItems = [
+        {
+            title: "Habitación Individual #1 (Piso 2)",
+            images: [
+                { src: "Imagen de WhatsApp 2025-09-30 a las 14.04.41_754b6a2f.jpg", alt: "Cama individual y decoración" },
+                { src: "Imagen de WhatsApp 2025-09-30 a las 14.06.34_bb675a63.jpg", alt: "Vista de la habitación y el baño" }
+            ]
+        },
+        {
+            title: "Habitación Doble #2 (Piso 3)",
+            images: [
+                { src: "Imagen de WhatsApp 2025-09-30 a las 14.25.40_0b40ddce.jpg", alt: "Cama doble y ventana" },
+                { src: "Imagen de WhatsApp 2025-09-30 a las 14.38.13_64d23edf.jpg", alt: "Vista lateral de la habitación" }
+            ]
+        },
+        {
+            title: "Habitación Familiar/Cuádruple #3 (Piso 1)",
+            images: [
+                { src: "Imagen de WhatsApp 2025-09-30 a las 15.10.31_4fd41b26.jpg", alt: "Varias camas en la habitación" },
+                { src: "Imagen de WhatsApp 2025-09-30 a las 15.16.00_666b0cf2.jpg", alt: "Vista del baño privado" }
+            ]
+        },
+        {
+            title: "Zonas Comunes: Recepción y Áreas de Estar",
+            images: [
+                { src: "Imagen de WhatsApp 2025-09-30 a las 19.12.47_cd681c09.jpg", alt: "Zona de recepción o pasillo principal" },
+                { src: "Imagen de WhatsApp 2025-09-30 a las 19.12.47_87e9cd56.jpg", alt: "Área de estar común" }
+            ]
+        },
+        {
+            title: "Terraza y Exteriores",
+            images: [
+                { src: "Imagen de WhatsApp 2025-09-30 a las 19.15.54_0d857edb.jpg", alt: "Terraza con vista" },
+                { src: "Imagen de WhatsApp 2025-09-30 a las 17.54.31_c951bbaf.jpg", alt: "Fachada o exterior de la casa" }
+            ]
+        }
+    ];
 
-            // 2. Iterar sobre cada habitación
-            data.habitaciones.forEach(habitacion => {
-                // ELIMINAR EL CERO INICIAL (si existe) para que coincida con tus carpetas de GitHub (1 DABEIBA, no 01 DABEIBA)
-                // y asegurar que se usen MAYÚSCULAS para coincidir con el case de GitHub.
-                const carpeta = habitacion.carpeta.replace(/^0(\d)/, '$1').toUpperCase();
+    const galleryContainer = document.querySelector('.container.mx-auto section#galeria-seccion');
 
-                // 3. Iterar sobre las fotos de esa habitación
-                habitacion.fotos.forEach((fotoNombre, index) => {
-                    // Crea el elemento <img>
-                    const img = document.createElement('img');
-                    
-                    // Concatena la ruta: Carpeta/nombre_del_archivo.jpg
-                    img.src = `${carpeta}/${fotoNombre}`;
-                    
-                    // Crea un texto alternativo
-                    img.alt = `${habitacion.nombre} ${index + 1}`;
-                    
-                    // Añade la imagen al contenedor
-                    galleryContainer.appendChild(img);
-                });
-            });
+    galleryItems.forEach(item => {
+        // Crear el contenedor de la sección de la habitación
+        const sectionDiv = document.createElement('div');
+        sectionDiv.classList.add('mb-12');
 
-            // 4. ELIMINAR EL CONTENIDO HTML MANUAL
-            // Ya que el script genera la galería, borra todas las etiquetas <img>
-            // que tienes escritas a mano en galeria.html.
-        })
-        .catch(error => {
-            console.error("Error al cargar o parsear habitaciones.json:", error);
+        // Crear el título de la habitación
+        const h3 = document.createElement('h3');
+        h3.classList.add('text-2xl', 'font-semibold', 'mb-4', 'text-gray-800', 'border-b', 'pb-2');
+        h3.textContent = item.title;
+        sectionDiv.appendChild(h3);
+
+        // Crear el contenedor de la cuadrícula de fotos
+        const gridDiv = document.createElement('div');
+        gridDiv.classList.add('grid-gallery'); 
+
+        // Iterar sobre las DOS imágenes de la habitación
+        item.images.forEach(image => {
+            const img = document.createElement('img');
+            img.src = image.src; 
+            img.alt = image.alt;
+            
+            const imgWrapper = document.createElement('div');
+            imgWrapper.appendChild(img);
+            gridDiv.appendChild(imgWrapper);
         });
+
+        sectionDiv.appendChild(gridDiv);
+        galleryContainer.appendChild(sectionDiv);
+    });
 });
-Paso 2: Limpiar galeria.html (Quitar el código manual)
-Tu script galeria.js ahora es el encargado de generar las imágenes. Debes borrar todas las etiquetas <img src="..."> que escribiste manualmente en galeria.html.
-
-Instrucción para galeria.html:
-
-Abre tu archivo galeria.html y elimina todo lo que está entre las etiquetas <div class="grid-gallery">...</div>.
-
-Tu galeria.html DEBE quedar así (casi vacío en la sección de la galería):
-
-HTML
-
-<div class="container mx-auto p-4 max-w-5xl">
-        <section id="galeria-seccion" class="mt-12 mb-12">
-            <h2 class="text-3xl font-bold text-center mb-8 text-blue-900">Galería de Habitaciones </h2>
-            
-            <div class="grid-gallery">
-                </div>
-            
-        </section>
-    </div>
-
-    <script src="galeria.js"></script> 
-
-</body>
-</html>
