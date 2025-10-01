@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // La extensión del archivo ahora es .jpg.jpg
-    const IMAGE_SUFFIX = "1.jpg.jpg"; 
+    const IMAGE_SUFFIX_1 = "1.jpg.jpg"; 
     const IMAGE_SUFFIX_2 = "2.jpg.jpg"; 
 
     const galleryItems = [
@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // 20. LAURELES
         {
-            title: "LAURELES", 
+            title: "LAURELES" 
             images: [
                 { src: FOTOS_PATH + cleanName("LAURELES") + IMAGE_SUFFIX, alt: "Habitación Laureles vista A" },
                 { src: FOTOS_PATH + cleanName("LAURELES") + IMAGE_SUFFIX_2, alt: "Habitación Laureles vista B" }
