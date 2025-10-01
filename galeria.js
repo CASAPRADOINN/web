@@ -9,9 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
             .replace(/\s+/g, ''); 
     };
 
-    // La extensión del archivo ahora es .jpg.jpg
+    // <--- ¡CONFIGURACIÓN PARA DOBLE EXTENSIÓN .jpg.jpg! --->
     const IMAGE_SUFFIX_1 = "1.jpg.jpg"; 
     const IMAGE_SUFFIX_2 = "2.jpg.jpg"; 
+    // <------------------------------------------------------->
 
     const galleryItems = [
         // ----------------------------------------------------
@@ -189,16 +190,14 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         
-        // 20. LAURELES (CORREGIDO: COMA AÑADIDA DESPUÉS DE LA CLAVE "title")
+        // 20. LAURELES
         {
-            title: "LAURELES", 
+            title: "LAURELES", // <--- ¡COMA CORREGIDA!
             images: [
                 { src: FOTOS_PATH + cleanName("LAURELES") + IMAGE_SUFFIX_1, alt: "Habitación Laureles vista A" },
                 { src: FOTOS_PATH + cleanName("LAURELES") + IMAGE_SUFFIX_2, alt: "Habitación Laureles vista B" }
             ]
         } 
-        
-        // ----------------------------------------------------
     ];
 
     const galleryContainer = document.querySelector('.container.mx-auto section#galeria-seccion');
