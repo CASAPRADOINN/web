@@ -1,11 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CASA PRADO INN - Alquileres Largos en Medellín</title>
-    <!-- Carga de Tailwind CSS desde CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
@@ -22,17 +20,14 @@
 <body class="smooth-scroll">
     <div id="app" class="min-h-screen flex flex-col items-center p-4 sm:p-8">
 
-        <!-- Barra de Navegación -->
         <nav class="sticky top-0 z-50 w-full max-w-5xl bg-amber-50 bg-opacity-90 backdrop-blur-sm rounded-xl shadow-lg p-4 mb-8">
             <div class="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
-                <!-- Logo/Inicio -->
                 <a href="#top" class="hover:opacity-80 transition-opacity">
-                    <img src="https://i.ibb.co/wFRq2pmC/logo.jpg" alt="Logo de The Co-Working & Rooftop House" class="h-12 rounded-full shadow-md">
+                    <img src="logotipo.jpg" alt="Logo de CASA PRADO INN" class="h-12 rounded-full shadow-md">
                 </a>
-                <!-- Menú de Navegación -->
                 <div class="flex flex-wrap justify-center space-x-4 sm:space-x-6 text-blue-900">
                     <a href="#caracteristicas" class="hover:text-blue-600 transition-colors font-medium">Características</a>
-                   <a href="galeria.html" class="hover:text-blue-600 transition-colors font-medium">Galería de fotos</a>
+                    <a href="galeria.html" class="hover:text-blue-600 transition-colors font-medium">Galería de fotos</a>
                     <a href="#acomodacion-precio" class="hover:text-blue-600 transition-colors font-medium">Acomodación y Precio</a>
                     <a href="#pagos" class="hover:text-blue-600 transition-colors font-medium">Métodos de Pago</a>
                     <a href="#ubicacion" class="hover:text-blue-600 transition-colors font-medium">Ubicación</a>
@@ -40,25 +35,18 @@
             </div>
         </nav>
 
-        <!-- Hero Section and Main Info -->
         <header id="top" class="w-full max-w-5xl bg-white rounded-xl shadow-lg p-6 sm:p-8 mb-8">
-            <!-- Contenedor de la imagen de portada -->
             <div class="w-full h-64 sm:h-96 rounded-xl overflow-hidden shadow-md mb-4">
                 <img src="https://i.ibb.co/Zz31sN9r/fachada-2.jpg" alt="Fotografía de la fachada de la casa estilo pueblo paisa en Medellín" class="w-full h-full object-cover">
             </div>
-            <!-- Título debajo de la imagen -->
             <h1 class="text-3xl sm:text-4xl font-bold text-blue-950 text-center mb-6">CASA PRADO INN</h1>
-            <!-- Descripción debajo del título, sin los asteriscos -->
             <p class="text-lg text-center text-gray-600 max-w-3xl mx-auto italic text-gray-700">
                 En el corazón del único Distrito Cultural y Patrimonial de Medellín, te invitamos a vivir una experiencia inigualable. Esta casa respira la magia de un pueblo paisa y la fusiona con la comodidad moderna. Desde la inspiradora terraza hasta los acogedores espacios, cada rincón es una invitación a conectar con la historia y el encanto de la ciudad. Bienvenido a tu hogar, donde los sueños y la cultura se encuentran.
             </p>
         </header>
 
-        <!-- Main Content Section -->
         <main class="w-full max-w-5xl grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Features and Details Column -->
             <div class="md:col-span-2 bg-white rounded-xl shadow-lg p-6 sm:p-8">
-                <!-- Seccion de Caracteristicas -->
                 <h2 id="caracteristicas" class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4 border-b pb-2">
                     Características Principales
                 </h2>
@@ -95,7 +83,6 @@
                     </li>
                 </ul>
                 
-                <!-- Sección de Acomodación añadida -->
                 <h2 id="acomodacion" class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4 border-b pb-2 mt-8">
                     Acomodación
                 </h2>
@@ -109,7 +96,6 @@
                     <li>Habitaciones para <span class="font-bold">4 personas</span>.</li>
                 </ul>
                 
-                <!-- Sección de Métodos de Pago - Diseño actualizado -->
                 <h2 id="pagos" class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4 border-b pb-2 mt-8">
                     Métodos de Pago
                 </h2>
@@ -117,21 +103,18 @@
                     Para tu conveniencia, ofrecemos varias opciones de pago para confirmar tu reserva. Elige la que mejor se adapte a ti.
                 </p>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                    <!-- Tarjeta de Transferencia Bancaria -->
                     <div id="transferencia-bancaria" class="bg-gray-100 rounded-lg p-4 flex items-center space-x-4 shadow-md cursor-pointer hover:bg-gray-200 transition-colors">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-blue-600">
                             <rect width="20" height="14" x="2" y="5" rx="2"/><path d="M2 10h20"/><path d="M7 15h0.01"/><path d="M11 15h2"/><path d="M16 15h2"/>
                         </svg>
                         <span class="font-medium text-gray-800">Transferencia Bancaria</span>
                     </div>
-                    <!-- Tarjeta de Plataformas de Pago -->
                     <div id="plataformas-pago" class="bg-gray-100 rounded-lg p-4 flex items-center space-x-4 shadow-md cursor-pointer hover:bg-gray-200 transition-colors">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-green-600">
                             <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><path d="M18 12a2 2 0 0 0 0 4h4a2 2 0 0 1 0 4h-4a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2h4a2 2 0 0 0 0-4h-3a2 2 0 0 0-2 2v2z"/>
                         </svg>
                         <span class="font-medium text-gray-800">Plataformas de Pago</span>
                     </div>
-                    <!-- Tarjeta de Pago en Efectivo -->
                     <div id="pago-efectivo" class="bg-gray-100 rounded-lg p-4 flex items-center space-x-4 shadow-md cursor-pointer hover:bg-gray-200 transition-colors">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-yellow-600">
                             <path d="M12 2v20m5-15H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/><path d="M12 3v18"/>
@@ -140,7 +123,6 @@
                     </div>
                 </div>
 
-                <!-- Seccion de Ubicacion y Conectividad -->
                 <h2 id="ubicacion" class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4 border-b pb-2 mt-8">
                     Ubicación y Conectividad
                 </h2>
@@ -155,7 +137,6 @@
                     <li>Catedral Metropolitana</li>
                 </ul>
                 <div class="relative w-full h-64 rounded-xl overflow-hidden shadow-md">
-                    <!-- Código de iframe corregido para el mapa de Google -->
                     <iframe 
                         title="Ubicación de The Co-Working & Rooftop House"
                         src="https://maps.google.com/maps?q=calle 61 45 d 15 barrio Prado Centro Medellin&output=embed&z=15"
@@ -170,9 +151,7 @@
                 </p>
             </div>
 
-            <!-- Booking Form Column -->
             <aside class="md:col-span-1 space-y-8">
-                <!-- Booking Engine Form -->
                 <div id="acomodacion-precio" class="bg-white rounded-xl shadow-lg p-6 sm:p-8 sticky top-4">
                     <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4">
                         Motor de Reservas
@@ -183,9 +162,7 @@
                     <p class="text-sm text-gray-500 mb-4 italic">
                         El precio es para estancias de 30 días o más desde COP 1.200.000 
                     </p>
-                    <!-- Formulario actualizado para enviar datos a Web3Forms -->
                     <form id="booking-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
-                        <!-- Campo oculto requerido por Web3Forms. DEBES pegar aquí tu clave de acceso. -->
                         <input type="hidden" name="access_key" value="2a04fd5d-fc10-473d-8b45-30148c696f9d">
                         
                         <div>
@@ -216,7 +193,6 @@
                             <p class="text-xl font-bold text-gray-800">
                                 Total estimado: <span id="total-price" class="text-blue-600">$0 COP</span>
                             </p>
-                            <!-- Campo oculto para enviar el precio calculado -->
                             <input type="hidden" id="total-price-hidden" name="Total estimado" value="$0 COP">
                         </div>
                         <button type="submit" name="submit-form" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-lg font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors">
@@ -224,7 +200,6 @@
                         </button>
                     </form>
                     
-                    <!-- Botón de contacto por WhatsApp añadido -->
                     <div class="mt-4">
                         <a href="https://wa.me/573011885152" target="_blank" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-lg font-medium text-white bg-green-500 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400 transition-colors">
                             Contactar por WhatsApp
@@ -234,17 +209,14 @@
             </aside>
         </main>
         
-        <!-- Gallery Section - Added back to the main page -->
         <section id="galeria" class="w-full max-w-5xl bg-white rounded-xl shadow-lg p-6 sm:p-8 mt-8">
             <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-6 text-center">
                 Galería de Fotos
             </h2>
             <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                <!-- Las imágenes de la galería se insertarán aquí con JS -->
-            </div>
+                </div>
         </section>
 
-        <!-- Message/Modal container -->
         <div id="message-container" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden items-center justify-center p-4">
             <div class="bg-white rounded-xl shadow-2xl p-6 sm:p-8 max-w-lg w-full text-center">
                 <h3 id="message-title" class="text-2xl font-bold text-gray-800 mb-4"></h3>
@@ -334,14 +306,16 @@
                 let total = 0;
 
                 // Definir las tarifas
-                
-                const monthlyRate = 1300000; // Tarifa por mes
+                const monthlyRate = 1300000; // Tarifa por mes (asumido para el cálculo)
+                // DEBES definir una tarifa diaria si permites reservas de menos de 30 días
+                const dailyRate = 70000; // Tarifa por día (Ejemplo: $70.000 COP)
 
                 // Lógica condicional para el cálculo del precio
                 if (numberOfDays >= 30) {
                     const numberOfMonths = numberOfDays / 30.44; // Promedio de días en un mes
                     total = Math.round(numberOfMonths * monthlyRate * guests);
                 } else {
+                    // CÁLCULO PARA DÍAS (necesita la tarifa diaria)
                     total = numberOfDays * dailyRate * guests;
                 }
 
@@ -370,37 +344,53 @@
                 messageContainer.classList.remove('hidden');
                 messageContainer.classList.add('flex');
 
-                const copyButton = document.getElementById('copy-button');
-                if (copyButton) {
-                    copyButton.classList.remove('bg-blue-600', 'bg-green-600');
-                    copyButton.classList.add(buttonColor);
-                    copyButton.onclick = () => {
-                        const tempInput = document.createElement('textarea');
-                        tempInput.value = copyText;
-                        document.body.appendChild(tempInput);
-                        tempInput.select();
-                        document.execCommand('copy');
-                        document.body.removeChild(tempInput);
-
-                        // Muestra un mensaje de éxito en el modal en lugar de un alert
-                        const originalText = copyButton.textContent;
-                        copyButton.textContent = '¡Copiado!';
-                        copyButton.classList.remove(buttonColor);
-                        copyButton.classList.add('bg-gray-400');
-                        setTimeout(() => {
-                            copyButton.textContent = originalText;
-                            copyButton.classList.add(buttonColor);
-                            copyButton.classList.remove('bg-gray-400');
-                        }, 2000);
-                    };
+                let copyButton = document.getElementById('copy-button');
+                // Si el botón no existe, lo crea
+                if (!copyButton) {
+                    copyButton = document.createElement('button');
+                    copyButton.id = 'copy-button';
+                    copyButton.classList.add('py-2', 'px-4', 'text-white', 'rounded-md', 'hover:opacity-90', 'transition-colors', 'text-sm', 'mt-4');
+                    copyButton.textContent = 'Copiar Número';
+                    
+                    const modalBody = messageText.parentElement; // El div que contiene messageTitle y messageText
+                    if (modalBody.lastElementChild.tagName !== 'BUTTON') { // Para evitar duplicados si ya se cerró el modal
+                       modalBody.insertBefore(copyButton, document.getElementById('close-message'));
+                    }
                 }
+                
+                // Actualiza el botón de copiar si se usa
+                copyButton.classList.remove('bg-blue-600', 'bg-green-600', 'bg-gray-400');
+                copyButton.classList.add(buttonColor);
+                
+                // Asegurar que el botón "Cerrar" esté visible y sea el último
+                closeMessageButton.style.display = 'block';
+
+                copyButton.onclick = () => {
+                    const tempInput = document.createElement('textarea');
+                    tempInput.value = copyText;
+                    document.body.appendChild(tempInput);
+                    tempInput.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(tempInput);
+
+                    // Muestra un mensaje de éxito en el modal en lugar de un alert
+                    const originalText = copyButton.textContent;
+                    copyButton.textContent = '¡Copiado!';
+                    copyButton.classList.remove(buttonColor);
+                    copyButton.classList.add('bg-gray-400');
+                    setTimeout(() => {
+                        copyButton.textContent = originalText;
+                        copyButton.classList.add(buttonColor);
+                        copyButton.classList.remove('bg-gray-400');
+                    }, 2000);
+                };
             };
             
             // Event listeners para las tarjetas de pago
             transferenciaBancariaCard.addEventListener('click', () => {
                 showModalWithCopy(
                     'Transferencia Bancaria',
-                    `<p class="text-sm font-medium">Banco Davivienda</p><p class="text-xl font-bold text-gray-800">Cuenta de Ahorros: 1020945498</p><p class="text-sm font-medium">Titular: Olga Perez</p><div class="mt-4"><button id="copy-button" class="py-2 px-4 text-white rounded-md hover:opacity-90 transition-colors text-sm">Copiar Número</button></div>`,
+                    `<p class="text-sm font-medium">Banco Davivienda</p><p class="text-xl font-bold text-gray-800">Cuenta de Ahorros: 1020945498</p><p class="text-sm font-medium">Titular: Olga Perez</p>`,
                     '1020945498',
                     'bg-blue-600'
                 );
@@ -409,7 +399,7 @@
             plataformasPagoCard.addEventListener('click', () => {
                 showModalWithCopy(
                     'Plataformas de Pago',
-                    `<p class="text-xl font-bold text-gray-800">Nequi: 3112129116</p><div class="mt-4"><button id="copy-button" class="py-2 px-4 text-white rounded-md hover:opacity-90 transition-colors text-sm">Copiar Número</button></div>`,
+                    `<p class="text-xl font-bold text-gray-800">Nequi: 3112129116</p>`,
                     '3112129116',
                     'bg-green-600'
                 );
@@ -420,6 +410,11 @@
                 messageText.textContent = 'Para elegir esta opción, el pago se realiza en su totalidad al llegar a la casa.';
                 messageContainer.classList.remove('hidden');
                 messageContainer.classList.add('flex');
+                
+                // Ocultar el botón de copiar si existe y asegurar el botón de cerrar
+                const copyButton = document.getElementById('copy-button');
+                if (copyButton) copyButton.style.display = 'none';
+                closeMessageButton.style.display = 'block';
             });
             
             // Lógica de manejo de envío de formulario para evitar la recarga de la página
@@ -487,5 +482,6 @@
 
 </body>
 </html>
+
 
 
