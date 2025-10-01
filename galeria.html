@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-     <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CASA PRADO INN - Galería de Fotos</title>
-    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css"> 
     <style>
         /* Estilos CSS personalizados para la cuadrícula de 3 fotos por habitación */
         .grid-gallery {
+            /* Mantenemos 3 columnas, pero si solo hay 2 imágenes, se distribuirán correctamente */
             display: grid;
             grid-template-columns: repeat(3, 1fr); 
             gap: 16px; 
@@ -15,23 +17,30 @@
         .grid-gallery img {
             border-radius: 8px; 
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-            aspect-ratio: 1 / 1; 
             object-fit: cover; 
             width: 100%; 
+            height: 250px; /* Altura fija para uniformidad visual */
+            transition: transform 0.2s;
+        }
+        .grid-gallery img:hover {
+            transform: scale(1.02);
         }
         @media (max-width: 640px) {
-             .grid-gallery {
-                 grid-template-columns: 1fr;
+            .grid-gallery {
+                grid-template-columns: 1fr; /* Una columna en móviles */
+            }
+            .grid-gallery img {
+                 height: 300px;
             }
         }
     </style>
 </head>
 <body class="bg-gray-100">
 
-     <div class="sticky top-0 z-50 w-full max-w-5xl bg-amber-50 bg-opacity-90 backdrop-blur-sm rounded-xl shadow-lg p-4 mb-8 mx-auto">
+    <div class="sticky top-0 z-50 w-full max-w-5xl bg-amber-50 bg-opacity-90 backdrop-blur-sm rounded-xl shadow-lg p-4 mb-8 mx-auto">
         <div class="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
             <a href="index.html" class="hover:opacity-80 transition-opacity">
-                <img src="https://i.ibb.co/WFRq2pmC/logo.jpg" alt="Logo de The Co-Working & Rooftop House" class="h-12 rounded-full">
+                <img src="logotipo.jpg" alt="Logo de CASA PRADO INN" class="h-12 rounded-full shadow-md">
             </a>
 
             <div class="flex flex-wrap justify-center space-x-4 sm:space-x-6 text-blue-900">
@@ -46,15 +55,92 @@
     
     <div class="container mx-auto p-4 max-w-5xl">
         <section id="galeria-seccion" class="mt-12 mb-12">
-            <h2 class="text-3xl font-bold text-center mb-8 text-blue-900">Galería de Habitaciones </h2>
+            <h2 class="text-3xl font-bold text-center mb-12 text-blue-900">
+                Galería de Habitaciones y Zonas Comunes
+            </h2>
             
-            <div class="grid-gallery">
-                </div>
-            
-        </section>
+            </section>
     </div>
 
     <script src="galeria.js"></script>
 
 </body>
 </html>
+🛠️ Archivo galeria.js (2 Fotos por Habitación)
+Crea o actualiza tu archivo galeria.js con este código. Usará dos fotos por cada sección, tal como solicitaste:
+
+JavaScript
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Definición de las imágenes de la galería por tipo/habitación
+    // Se usa una selección de DOS de las fotos que subiste para cada sección.
+    const galleryItems = [
+        {
+            title: "Habitación Individual #1 (Piso 2)",
+            images: [
+                { src: "Imagen de WhatsApp 2025-09-30 a las 14.04.41_754b6a2f.jpg", alt: "Cama individual y decoración" },
+                { src: "Imagen de WhatsApp 2025-09-30 a las 14.06.34_bb675a63.jpg", alt: "Vista de la habitación y el baño" }
+            ]
+        },
+        {
+            title: "Habitación Doble #2 (Piso 3)",
+            images: [
+                { src: "Imagen de WhatsApp 2025-09-30 a las 14.25.40_0b40ddce.jpg", alt: "Cama doble y ventana" },
+                { src: "Imagen de WhatsApp 2025-09-30 a las 14.38.13_64d23edf.jpg", alt: "Vista lateral de la habitación" }
+            ]
+        },
+        {
+            title: "Habitación Familiar/Cuádruple #3 (Piso 1)",
+            images: [
+                { src: "Imagen de WhatsApp 2025-09-30 a las 15.10.31_4fd41b26.jpg", alt: "Varias camas en la habitación" },
+                { src: "Imagen de WhatsApp 2025-09-30 a las 15.16.00_666b0cf2.jpg", alt: "Vista del baño privado" }
+            ]
+        },
+        {
+            title: "Zonas Comunes: Recepción y Áreas de Estar",
+            images: [
+                { src: "Imagen de WhatsApp 2025-09-30 a las 19.12.47_cd681c09.jpg", alt: "Zona de recepción o pasillo principal" },
+                { src: "Imagen de WhatsApp 2025-09-30 a las 19.12.47_87e9cd56.jpg", alt: "Área de estar común" }
+            ]
+        },
+        {
+            title: "Terraza y Exteriores",
+            images: [
+                { src: "Imagen de WhatsApp 2025-09-30 a las 19.15.54_0d857edb.jpg", alt: "Terraza con vista" },
+                { src: "Imagen de WhatsApp 2025-09-30 a las 17.54.31_c951bbaf.jpg", alt: "Fachada o exterior de la casa" }
+            ]
+        }
+    ];
+
+    const galleryContainer = document.querySelector('.container.mx-auto section#galeria-seccion');
+
+    galleryItems.forEach(item => {
+        // Crear el contenedor de la sección de la habitación
+        const sectionDiv = document.createElement('div');
+        sectionDiv.classList.add('mb-12');
+
+        // Crear el título de la habitación
+        const h3 = document.createElement('h3');
+        h3.classList.add('text-2xl', 'font-semibold', 'mb-4', 'text-gray-800', 'border-b', 'pb-2');
+        h3.textContent = item.title;
+        sectionDiv.appendChild(h3);
+
+        // Crear el contenedor de la cuadrícula de fotos
+        const gridDiv = document.createElement('div');
+        gridDiv.classList.add('grid-gallery'); 
+
+        // Iterar sobre las DOS imágenes de la habitación
+        item.images.forEach(image => {
+            const img = document.createElement('img');
+            img.src = image.src; 
+            img.alt = image.alt;
+            
+            const imgWrapper = document.createElement('div');
+            imgWrapper.appendChild(img);
+            gridDiv.appendChild(imgWrapper);
+        });
+
+        sectionDiv.appendChild(gridDiv);
+        galleryContainer.appendChild(sectionDiv);
+    });
+});
