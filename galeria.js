@@ -1,5 +1,3 @@
-
-
 document.addEventListener('DOMContentLoaded', () => {
     // RUTA ABSOLUTA CORRECTA: /web/fotos/
     const FOTOS_PATH = "/web/fotos/"; 
