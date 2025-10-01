@@ -15,6 +15,10 @@
         .smooth-scroll {
             scroll-behavior: smooth;
         }
+        /* Estilo adicional para asegurar la visibilidad del grid en la galería */
+        #gallery-grid > div {
+            break-inside: avoid;
+        }
     </style>
 </head>
 <body class="smooth-scroll">
@@ -213,7 +217,7 @@
             <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-6 text-center">
                 Galería de Fotos
             </h2>
-            <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div id="gallery-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
                 </div>
         </section>
 
@@ -251,33 +255,35 @@
             checkInInput.min = today;
 
             // Galería de fotos: Pega aquí los enlaces directos a tus imágenes.
+            // **IMPORTANTE: Estos enlaces DEBEN ser URLs públicas y distintas.**
             const images = [
-                'https://i.ibb.co/WpYTJYH8/DSC0305.jpg', 
-                'https://i.ibb.co/whzZ7vKZ/DSC0433.jpg', 
-                'https://i.ibb.co/gbGFXKpq/DSC0367.jpg', 
-                'https://i.ibb.co/DDCRZvfM/DSC0452.jpg', 
-                'https://i.ibb.co/cK3zMj69/DSC0358.jpg', 
-                'https://i.ibb.co/214X9sMh/DSC0447.jpg',
-                'https://i.ibb.co/5XF3QBPm/DSC0370.jpg',
-                'https://i.ibb.co/yBNfyg1M/DSC0374.jpg',
-                'https://i.ibb.co/bTPRRh8/Imagen-de-Whats-App-2025-05-18-a-las-10-45-11-10f536fe.jpg',
-                'https://i.ibb.co/MyNqSXsY/Imagen-de-Whats-App-2025-07-09-a-las-15-43-05-2efbcb2c.jpg',
-                'https://i.ibb.co/vvHs83my/DSC0309.jpg',
-                'https://i.ibb.co/hRTFzsL6/DSC0316.jpg',
-                'https://i.ibb.co/Xf76gx2g/DSC0335.jpg',
-                'https://i.ibb.co/NgHKhjf0/DSC0339.jpg',
-                'https://i.ibb.co/ynRSFnwp/Imagen-de-Whats-App-2025-07-09-a-las-15-43-12-6943d98c.jpg',
-                'https://i.ibb.co/ks7sdGQp/DSC0344.jpg',
-                'https://i.ibb.co/wZhdh0CV/Imagen-de-Whats-App-2025-07-09-a-las-15-43-15-f76aa485.jpg',
-                'https://i.ibb.co/WNMd6LGQ/DSC0392.jpg',
-                'https://i.ibb.co/C3HcWYWM/DSC0386.jpg',
-                'https://i.ibb.co/4RbyFHF3/DSC0442.jpg',
-                'https://i.ibb.co/5gCRLv20/DSC0389.jpg'
+                'https://i.ibb.co/WpYTJYH8/DSC0305.jpg', // Habitación/cama
+                'https://i.ibb.co/whzZ7vKZ/DSC0433.jpg', // Terraza con sillas
+                'https://i.ibb.co/gbGFXKpq/DSC0367.jpg', // Sala/Comedor
+                'https://i.ibb.co/DDCRZvfM/DSC0452.jpg', // Zona de estar/balcón
+                'https://i.ibb.co/cK3zMj69/DSC0358.jpg', // Cocina
+                'https://i.ibb.co/214X9sMh/DSC0447.jpg', // Área común
+                'https://i.ibb.co/5XF3QBPm/DSC0370.jpg', // Habitación doble
+                'https://i.ibb.co/yBNfyg1M/DSC0374.jpg', // Baño
+                'https://i.ibb.co/bTPRRh8/Imagen-de-Whats-App-2025-05-18-a-las-10-45-11-10f536fe.jpg', // Pasillo/Interior
+                'https://i.ibb.co/MyNqSXsY/Imagen-de-Whats-App-2025-07-09-a-las-15-43-05-2efbcb2c.jpg', // Detalle decorativo
+                'https://i.ibb.co/vvHs83my/DSC0309.jpg', // Habitación individual
+                'https://i.ibb.co/hRTFzsL6/DSC0316.jpg', // Habitación
+                'https://i.ibb.co/Xf76gx2g/DSC0335.jpg', // Habitación/closet
+                'https://i.ibb.co/NgHKhjf0/DSC0339.jpg', // Exterior/Balcón
+                'https://i.ibb.co/ynRSFnwp/Imagen-de-Whats-App-2025-07-09-a-las-15-43-12-6943d98c.jpg', // Otro Detalle
+                'https://i.ibb.co/ks7sdGQp/DSC0344.jpg', // Vista interior
+                'https://i.ibb.co/wZhdh0CV/Imagen-de-Whats-App-2025-07-09-a-las-15-43-15-f76aa485.jpg', // Exterior
+                'https://i.ibb.co/WNMd6LGQ/DSC0392.jpg', // Terraza
+                'https://i.ibb.co/C3HcWYWM/DSC0386.jpg', // Fachada/Entrada
+                'https://i.ibb.co/4RbyFHF3/DSC0442.jpg', // Habitación
+                'https://i.ibb.co/5gCRLv20/DSC0389.jpg'  // Zona común
             ];
 
             // Render gallery images
             images.forEach(src => {
                 const imgContainer = document.createElement('div');
+                // Se asegura un tamaño fijo para cada imagen dentro del grid
                 imgContainer.classList.add('w-full', 'h-48', 'relative', 'overflow-hidden', 'rounded-lg', 'shadow-md');
 
                 const img = document.createElement('img');
@@ -306,8 +312,7 @@
                 const numberOfDays = Math.round((checkOutDate.getTime() - checkInDate.getTime()) / oneDay);
                 let total = 0;
 
-                // Definir la tarifa base. ASUMIMOS que la tarifa es un promedio.
-                // DEBES ajustar esta tarifa a tu tarifa mensual promedio/mínima real.
+                // Definir la tarifa base. DEBES ajustar esta tarifa a tu tarifa mensual promedio/mínima real.
                 const monthlyRateBase = 1300000; 
                 const minDaysForLongTerm = 30; // Mínimo de días para alquiler largo
                 
@@ -327,6 +332,7 @@
                 // Usamos un factor de 30.44 días por mes para cálculo promedio
                 const numberOfMonths = numberOfDays / 30.44; 
                 // El precio se calcula con la tarifa base * número de meses * número de huéspedes
+                // (Asumiendo que el precio varía linealmente con el número de huéspedes para el total de la casa, si la variación es diferente, debes ajustar esta fórmula)
                 total = Math.round(numberOfMonths * monthlyRateBase * guests);
 
                 totalPriceSpan.textContent = `$${total.toLocaleString('es-CO')} COP`;
@@ -501,7 +507,6 @@
 
 </body>
 </html>
-
 
 
 
