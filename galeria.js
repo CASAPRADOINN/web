@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             title: "DABEIDA", 
             images: [
-                { src: FOTOS_PATH + cleanName("DABEIDA") + IMAGE_SUFFIX, alt: "Habitación Dabeida vista A" },
+                { src: FOTOS_PATH + cleanName("DABEIDA") + IMAGE_SUFFIX_1, alt: "Habitación Dabeida vista A" },
                 { src: FOTOS_PATH + cleanName("DABEIDA") + IMAGE_SUFFIX_2, alt: "Habitación Dabeida vista B" }
             ]
         },
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             title: "BARBOSA", 
             images: [
-                { src: FOTOS_PATH + cleanName("BARBOSA") + IMAGE_SUFFIX, alt: "Habitación Barbosa vista A" },
+                { src: FOTOS_PATH + cleanName("BARBOSA") + IMAGE_SUFFIX_1, alt: "Habitación Barbosa vista A" },
                 { src: FOTOS_PATH + cleanName("BARBOSA") + IMAGE_SUFFIX_2, alt: "Habitación Barbosa vista B" }
             ]
         },
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             title: "BELMIRA", 
             images: [
-                { src: FOTOS_PATH + cleanName("BELMIRA") + IMAGE_SUFFIX, alt: "Habitación Belmira vista A" },
+                { src: FOTOS_PATH + cleanName("BELMIRA") + IMAGE_SUFFIX_1, alt: "Habitación Belmira vista A" },
                 { src: FOTOS_PATH + cleanName("BELMIRA") + IMAGE_SUFFIX_2, alt: "Habitación Belmira vista B" }
             ]
         },
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             title: "SANTA FE DE ANTIOQUIA", 
             images: [
-                { src: FOTOS_PATH + cleanName("SANTAFEDEANTIOQUIA") + IMAGE_SUFFIX, alt: "Habitación Santa Fe de Antioquia vista A" },
+                { src: FOTOS_PATH + cleanName("SANTAFEDEANTIOQUIA") + IMAGE_SUFFIX_1, alt: "Habitación Santa Fe de Antioquia vista A" },
                 { src: FOTOS_PATH + cleanName("SANTAFEDEANTIOQUIA") + IMAGE_SUFFIX_2, alt: "Habitación Santa Fe de Antioquia vista B" }
             ]
         },
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             title: "RIONEGRO", 
             images: [
-                { src: FOTOS_PATH + cleanName("RIONEGRO") + IMAGE_SUFFIX, alt: "Habitación Rionegro vista A" },
+                { src: FOTOS_PATH + cleanName("RIONEGRO") + IMAGE_SUFFIX_1, alt: "Habitación Rionegro vista A" },
                 { src: FOTOS_PATH + cleanName("RIONEGRO") + IMAGE_SUFFIX_2, alt: "Habitación Rionegro vista B" }
             ]
         },
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             title: "MARINILLA", 
             images: [
-                { src: FOTOS_PATH + cleanName("MARINILLA") + IMAGE_SUFFIX, alt: "Habitación Marinilla vista A" },
+                { src: FOTOS_PATH + cleanName("MARINILLA") + IMAGE_SUFFIX_1, alt: "Habitación Marinilla vista A" },
                 { src: FOTOS_PATH + cleanName("MARINILLA") + IMAGE_SUFFIX_2, alt: "Habitación Marinilla vista B" }
             ]
         },
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             title: "LA CEJA", 
             images: [
-                { src: FOTOS_PATH + cleanName("LACEJA") + IMAGE_SUFFIX, alt: "Habitación La Ceja vista A" },
+                { src: FOTOS_PATH + cleanName("LACEJA") + IMAGE_SUFFIX_1, alt: "Habitación La Ceja vista A" },
                 { src: FOTOS_PATH + cleanName("LACEJA") + IMAGE_SUFFIX_2, alt: "Habitación La Ceja vista B" }
             ]
         },
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             title: "SAN CARLOS", 
             images: [
-                { src: FOTOS_PATH + cleanName("SANCARLOS") + IMAGE_SUFFIX, alt: "Habitación San Carlos vista A" },
+                { src: FOTOS_PATH + cleanName("SANCARLOS") + IMAGE_SUFFIX_1, alt: "Habitación San Carlos vista A" },
                 { src: FOTOS_PATH + cleanName("SANCARLOS") + IMAGE_SUFFIX_2, alt: "Habitación San Carlos vista B" }
             ]
         },
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             title: "URRAO", 
             images: [
-                { src: FOTOS_PATH + cleanName("URRAO") + IMAGE_SUFFIX, alt: "Habitación Urrao vista A" },
+                { src: FOTOS_PATH + cleanName("URRAO") + IMAGE_SUFFIX_1, alt: "Habitación Urrao vista A" },
                 { src: FOTOS_PATH + cleanName("URRAO") + IMAGE_SUFFIX_2, alt: "Habitación Urrao vista B" }
             ]
         },
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             title: "GUARNE", 
             images: [
-                { src: FOTOS_PATH + cleanName("GUARNE") + IMAGE_SUFFIX, alt: "Habitación Guarne vista A" },
+                { src: FOTOS_PATH + cleanName("GUARNE") + IMAGE_SUFFIX_1, alt: "Habitación Guarne vista A" },
                 { src: FOTOS_PATH + cleanName("GUARNE") + IMAGE_SUFFIX_2, alt: "Habitación Guarne vista B" }
             ]
         },
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             title: "SOPETRAN", 
             images: [
-                { src: FOTOS_PATH + cleanName("SOPETRAN") + IMAGE_SUFFIX, alt: "Habitación Sopetran vista A" },
+                { src: FOTOS_PATH + cleanName("SOPETRAN") + IMAGE_SUFFIX_1, alt: "Habitación Sopetran vista A" },
                 { src: FOTOS_PATH + cleanName("SOPETRAN") + IMAGE_SUFFIX_2, alt: "Habitación Sopetran vista B" }
             ]
         },
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             title: "LA PINTADA", 
             images: [
-                { src: FOTOS_PATH + cleanName("LAPINTADA") + IMAGE_SUFFIX, alt: "Habitación La Pintada vista A" },
+                { src: FOTOS_PATH + cleanName("LAPINTADA") + IMAGE_SUFFIX_1, alt: "Habitación La Pintada vista A" },
                 { src: FOTOS_PATH + cleanName("LAPINTADA") + IMAGE_SUFFIX_2, alt: "Habitación La Pintada vista B" }
             ]
         },
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             title: "SAN PEDRO DE LOS MILAGROS", 
             images: [
-                { src: FOTOS_PATH + cleanName("SANPEDRODELOSMILAGROS") + IMAGE_SUFFIX, alt: "Habitación San Pedro vista A" },
+                { src: FOTOS_PATH + cleanName("SANPEDRODELOSMILAGROS") + IMAGE_SUFFIX_1, alt: "Habitación San Pedro vista A" },
                 { src: FOTOS_PATH + cleanName("SANPEDRODELOSMILAGROS") + IMAGE_SUFFIX_2, alt: "Habitación San Pedro vista B" }
             ]
         },
@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             title: "ENVIGADO", 
             images: [
-                { src: FOTOS_PATH + cleanName("ENVIGADO") + IMAGE_SUFFIX, alt: "Habitación Envigado vista A" },
+                { src: FOTOS_PATH + cleanName("ENVIGADO") + IMAGE_SUFFIX_1, alt: "Habitación Envigado vista A" },
                 { src: FOTOS_PATH + cleanName("ENVIGADO") + IMAGE_SUFFIX_2, alt: "Habitación Envigado vista B" }
             ]
         },
@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             title: "COPACABANA", 
             images: [
-                { src: FOTOS_PATH + cleanName("COPACABANA") + IMAGE_SUFFIX, alt: "Habitación Copacabana vista A" },
+                { src: FOTOS_PATH + cleanName("COPACABANA") + IMAGE_SUFFIX_1, alt: "Habitación Copacabana vista A" },
                 { src: FOTOS_PATH + cleanName("COPACABANA") + IMAGE_SUFFIX_2, alt: "Habitación Copacabana vista B" }
             ]
         },
@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             title: "ITAGUI", 
             images: [
-                { src: FOTOS_PATH + cleanName("ITAGUI") + IMAGE_SUFFIX, alt: "Habitación Itagui vista A" },
+                { src: FOTOS_PATH + cleanName("ITAGUI") + IMAGE_SUFFIX_1, alt: "Habitación Itagui vista A" },
                 { src: FOTOS_PATH + cleanName("ITAGUI") + IMAGE_SUFFIX_2, alt: "Habitación Itagui vista B" }
             ]
         },
@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             title: "CANDELARIA", 
             images: [
-                { src: FOTOS_PATH + cleanName("CANDELARIA") + IMAGE_SUFFIX, alt: "Habitación Candelaria vista A" },
+                { src: FOTOS_PATH + cleanName("CANDELARIA") + IMAGE_SUFFIX_1, alt: "Habitación Candelaria vista A" },
                 { src: FOTOS_PATH + cleanName("CANDELARIA") + IMAGE_SUFFIX_2, alt: "Habitación Candelaria vista B" }
             ]
         },
@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             title: "EL POBLADO", 
             images: [
-                { src: FOTOS_PATH + cleanName("ELPOBLADO") + IMAGE_SUFFIX, alt: "Habitación El Poblado vista A" },
+                { src: FOTOS_PATH + cleanName("ELPOBLADO") + IMAGE_SUFFIX_1, alt: "Habitación El Poblado vista A" },
                 { src: FOTOS_PATH + cleanName("ELPOBLADO") + IMAGE_SUFFIX_2, alt: "Habitación El Poblado vista B" }
             ]
         },
@@ -184,19 +184,19 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             title: "CARMEN DE VIBORAL", 
             images: [
-                { src: FOTOS_PATH + cleanName("CARMENDEVIBORAL") + IMAGE_SUFFIX, alt: "Habitación Carmen de Viboral vista A" },
+                { src: FOTOS_PATH + cleanName("CARMENDEVIBORAL") + IMAGE_SUFFIX_1, alt: "Habitación Carmen de Viboral vista A" },
                 { src: FOTOS_PATH + cleanName("CARMENDEVIBORAL") + IMAGE_SUFFIX_2, alt: "Habitación Carmen de Viboral vista B" }
             ]
         },
         
-        // 20. LAURELES
+        // 20. LAURELES (CORREGIDO: COMA AÑADIDA DESPUÉS DE LA CLAVE "title")
         {
-            title: "LAURELES" 
+            title: "LAURELES", 
             images: [
-                { src: FOTOS_PATH + cleanName("LAURELES") + IMAGE_SUFFIX, alt: "Habitación Laureles vista A" },
+                { src: FOTOS_PATH + cleanName("LAURELES") + IMAGE_SUFFIX_1, alt: "Habitación Laureles vista A" },
                 { src: FOTOS_PATH + cleanName("LAURELES") + IMAGE_SUFFIX_2, alt: "Habitación Laureles vista B" }
             ]
-        }
+        } 
         
         // ----------------------------------------------------
     ];
@@ -227,3 +227,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
         sectionDiv.appendChild(gridDiv);
         galleryContainer.appendChild(sectionDiv);
+    });
+});
