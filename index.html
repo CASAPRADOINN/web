@@ -138,8 +138,8 @@
                 </ul>
                 <div class="relative w-full h-64 rounded-xl overflow-hidden shadow-md">
                     <iframe 
-                        title="Ubicación de Casa Prado Inn"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.9892550190117!2d-75.56616098522676!3d6.265775495460596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4429e5595c52c7%3A0x86f3801f68740d18!2sBarrio%20Prado%20Centro%2C%20Medell%C3%ADn%2C%20Antioquia!5e0!3m2!1ses!2sco!4v1634567890123!5m2!1ses!2sco"
+                        title="Ubicación de The Co-Working & Rooftop House"
+                        src="https://maps.google.com/maps?q=calle 61 45 d 15 barrio Prado Centro Medellin&output=embed&z=15"
                         class="w-full h-full border-0" 
                         allowfullscreen="" 
                         loading="lazy" 
@@ -160,7 +160,7 @@
                         Selecciona el número de personas. La casa cuenta con habitaciones para 1, 2, 3 o 4 huéspedes.
                     </p>
                     <p class="text-sm text-gray-500 mb-4 italic">
-                        <span class="font-bold text-red-600">¡Solo alquileres de 30 días o más!</span> El precio mensual inicia desde <span class="font-bold">COP 1.200.000</span>.
+                        El precio es para estancias de 30 días o más desde COP 1.200.000 
                     </p>
                     <form id="booking-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
                         <input type="hidden" name="access_key" value="2a04fd5d-fc10-473d-8b45-30148c696f9d">
@@ -182,7 +182,7 @@
                             <input type="date" id="check-in" name="Fecha de Llegada" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                         </div>
                         <div>
-                            <label for="check-out" class="block text-sm font-medium text-gray-700">Fecha de Salida (Mínimo 30 días)</label>
+                            <label for="check-out" class="block text-sm font-medium text-gray-700">Fecha de Salida</label>
                             <input type="date" id="check-out" name="Fecha de Salida" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                         </div>
                         <div>
@@ -294,8 +294,7 @@
                 const checkInDate = new Date(checkInInput.value);
                 const checkOutDate = new Date(checkOutInput.value);
                 const guests = parseInt(guestsInput.value, 10);
-                
-                // Si falta información o las fechas son inválidas, salimos.
+
                 if (!checkInInput.value || !checkOutInput.value || checkOutDate <= checkInDate || guests < 1) {
                     totalPriceSpan.textContent = '$0 COP';
                     totalPriceHiddenInput.value = '$0 COP'; // Update hidden field
@@ -306,28 +305,19 @@
                 const numberOfDays = Math.round((checkOutDate.getTime() - checkInDate.getTime()) / oneDay);
                 let total = 0;
 
-                // Definir la tarifa base. ASUMIMOS que la tarifa es un promedio.
-                // DEBES ajustar esta tarifa a tu tarifa mensual promedio/mínima real.
-                const monthlyRateBase = 1300000; 
-                const minDaysForLongTerm = 30; // Mínimo de días para alquiler largo
-                
-                // Lógica de validación de renta larga
-                if (numberOfDays < minDaysForLongTerm) {
-                    messageTitle.textContent = '¡Solo Renta Larga!';
-                    messageText.textContent = `La estancia mínima es de ${minDaysForLongTerm} días. Por favor, ajusta la fecha de salida.`;
-                    messageContainer.classList.remove('hidden');
-                    messageContainer.classList.add('flex');
-                    checkOutInput.value = ''; // Borra la fecha de salida inválida
-                    totalPriceSpan.textContent = '$0 COP';
-                    totalPriceHiddenInput.value = '$0 COP';
-                    return;
+                // Definir las tarifas
+                const monthlyRate = 1300000; // Tarifa por mes (asumido para el cálculo)
+                // DEBES definir una tarifa diaria si permites reservas de menos de 30 días
+                const dailyRate = 70000; // Tarifa por día (Ejemplo: $70.000 COP)
+
+                // Lógica condicional para el cálculo del precio
+                if (numberOfDays >= 30) {
+                    const numberOfMonths = numberOfDays / 30.44; // Promedio de días en un mes
+                    total = Math.round(numberOfMonths * monthlyRate * guests);
+                } else {
+                    // CÁLCULO PARA DÍAS (necesita la tarifa diaria)
+                    total = numberOfDays * dailyRate * guests;
                 }
-                
-                // CÁLCULO SOLO PARA RENTA LARGA (30 días o más)
-                // Usamos un factor de 30.44 días por mes para cálculo promedio
-                const numberOfMonths = numberOfDays / 30.44; 
-                // El precio se calcula con la tarifa base * número de meses * número de huéspedes
-                total = Math.round(numberOfMonths * monthlyRateBase * guests);
 
                 totalPriceSpan.textContent = `$${total.toLocaleString('es-CO')} COP`;
                 totalPriceHiddenInput.value = `$${total.toLocaleString('es-CO')} COP`; // Update hidden field
@@ -336,7 +326,7 @@
             // Event listeners for date changes
             checkInInput.addEventListener('change', calculatePrice);
             checkOutInput.addEventListener('change', () => {
-                if (checkInInput.value && checkOutInput.value && new Date(checkInInput.value) >= new Date(checkOutInput.value)) {
+                if (checkInInput.value && checkOutInput.value && checkInInput.value >= checkOutInput.value) {
                     messageTitle.textContent = '¡Error en las fechas!';
                     messageText.textContent = 'La fecha de salida debe ser posterior a la fecha de llegada.';
                     messageContainer.classList.remove('hidden');
@@ -355,23 +345,25 @@
                 messageContainer.classList.add('flex');
 
                 let copyButton = document.getElementById('copy-button');
-                const modalBody = messageText.parentElement;
-                
-                // Crear o actualizar el botón de copiar
+                // Si el botón no existe, lo crea
                 if (!copyButton) {
                     copyButton = document.createElement('button');
                     copyButton.id = 'copy-button';
                     copyButton.classList.add('py-2', 'px-4', 'text-white', 'rounded-md', 'hover:opacity-90', 'transition-colors', 'text-sm', 'mt-4');
                     copyButton.textContent = 'Copiar Número';
                     
-                    // Insertar antes del botón de cerrar
-                    modalBody.insertBefore(copyButton, document.getElementById('close-message'));
-                } else {
-                    copyButton.style.display = 'inline-block'; // Asegura que esté visible si se ocultó
+                    const modalBody = messageText.parentElement; // El div que contiene messageTitle y messageText
+                    if (modalBody.lastElementChild.tagName !== 'BUTTON') { // Para evitar duplicados si ya se cerró el modal
+                       modalBody.insertBefore(copyButton, document.getElementById('close-message'));
+                    }
                 }
                 
+                // Actualiza el botón de copiar si se usa
                 copyButton.classList.remove('bg-blue-600', 'bg-green-600', 'bg-gray-400');
                 copyButton.classList.add(buttonColor);
+                
+                // Asegurar que el botón "Cerrar" esté visible y sea el último
+                closeMessageButton.style.display = 'block';
 
                 copyButton.onclick = () => {
                     const tempInput = document.createElement('textarea');
@@ -381,6 +373,7 @@
                     document.execCommand('copy');
                     document.body.removeChild(tempInput);
 
+                    // Muestra un mensaje de éxito en el modal en lugar de un alert
                     const originalText = copyButton.textContent;
                     copyButton.textContent = '¡Copiado!';
                     copyButton.classList.remove(buttonColor);
@@ -418,29 +411,16 @@
                 messageContainer.classList.remove('hidden');
                 messageContainer.classList.add('flex');
                 
-                // Ocultar el botón de copiar si existe
+                // Ocultar el botón de copiar si existe y asegurar el botón de cerrar
                 const copyButton = document.getElementById('copy-button');
                 if (copyButton) copyButton.style.display = 'none';
+                closeMessageButton.style.display = 'block';
             });
             
             // Lógica de manejo de envío de formulario para evitar la recarga de la página
             bookingForm.addEventListener('submit', async (e) => {
+                // Evita el comportamiento de envío de formulario predeterminado
                 e.preventDefault();
-
-                // Validación adicional de renta larga al enviar el formulario
-                const checkInDate = new Date(checkInInput.value);
-                const checkOutDate = new Date(checkOutInput.value);
-                const oneDay = 1000 * 60 * 60 * 24;
-                const numberOfDays = Math.round((checkOutDate.getTime() - checkInDate.getTime()) / oneDay);
-                const minDaysForLongTerm = 30;
-
-                if (numberOfDays < minDaysForLongTerm) {
-                    messageTitle.textContent = '¡Solo Renta Larga!';
-                    messageText.textContent = `La estancia mínima es de ${minDaysForLongTerm} días. Por favor, ajusta la fecha de salida.`;
-                    messageContainer.classList.remove('hidden');
-                    messageContainer.classList.add('flex');
-                    return;
-                }
 
                 const form = e.target;
                 const formUrl = form.action;
@@ -467,8 +447,9 @@
                         messageContainer.classList.remove('hidden');
                         messageContainer.classList.add('flex');
                         
+                        // Limpiar el formulario después del envío exitoso
                         form.reset();
-                        calculatePrice(); 
+                        calculatePrice(); // Recalcula el precio a 0
                     } else {
                         messageTitle.textContent = '¡Error al Enviar!';
                         messageText.textContent = 'Hubo un problema al procesar tu solicitud. Por favor, inténtalo de nuevo o contáctanos directamente por WhatsApp.';
@@ -501,6 +482,7 @@
 
 </body>
 </html>
+
 
 
 
